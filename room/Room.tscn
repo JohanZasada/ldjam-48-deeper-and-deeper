@@ -25,3 +25,4 @@ environment = SubResource( 1 )
 transform = Transform( 0.258819, -0.933013, 0.25, 0, 0.258819, 0.965926, -0.965926, -0.25, 0.0669873, 0, 12, 0 )
 light_energy = 4.58
 light_bake_mode = 2
+shadow_enabled = true
