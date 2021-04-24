@@ -7,7 +7,6 @@
 [node name="Room" type="Spatial"]
 
 [node name="GridMap" type="GridMap" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.543791, -1.05972, 0.428575 )
 mesh_library = ExtResource( 1 )
 use_in_baked_light = true
 cell_size = Vector3( 0.5, 0.5, 0.5 )
@@ -16,7 +15,7 @@ data = {
 }
 __meta__ = {
 "_editor_clip_": 0,
-"_editor_floor_": Vector3( 0, 0, 0 )
+"_editor_floor_": Vector3( 0, 9, 0 )
 }
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
