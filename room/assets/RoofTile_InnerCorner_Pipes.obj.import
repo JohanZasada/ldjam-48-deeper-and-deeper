@@ -1,0 +1,19 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/RoofTile_InnerCorner_Pipes.obj-64ba3267c57f76859a74c8d7d7ee7f3f.mesh"
+
+[deps]
+
+files=[ "res://.import/RoofTile_InnerCorner_Pipes.obj-64ba3267c57f76859a74c8d7d7ee7f3f.mesh" ]
+
+source_file="res://room/assets/RoofTile_InnerCorner_Pipes.obj"
+dest_files=[ "res://.import/RoofTile_InnerCorner_Pipes.obj-64ba3267c57f76859a74c8d7d7ee7f3f.mesh", "res://.import/RoofTile_InnerCorner_Pipes.obj-64ba3267c57f76859a74c8d7d7ee7f3f.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+optimize_mesh=true
