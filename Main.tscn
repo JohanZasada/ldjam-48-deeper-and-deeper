@@ -14,3 +14,6 @@ transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0.929451, -0.8, 6.82759 
 transform = Transform( 5, 0, 0, 0, 3.53553, 3.53553, 0, -3.53553, 3.53553, 0, 13.3672, 11.1972 )
 size = 5.0
 far = 200.0
+
+[node name="DirectionalLight" type="DirectionalLight" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 10.2336, 6.16997 )
