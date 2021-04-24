@@ -1,0 +1,19 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/DoorSingle_Wall_SideA.obj-e6480f88009e135f9447dba1f9abd260.mesh"
+
+[deps]
+
+files=[ "res://.import/DoorSingle_Wall_SideA.obj-e6480f88009e135f9447dba1f9abd260.mesh" ]
+
+source_file="res://map/assets/DoorSingle_Wall_SideA.obj"
+dest_files=[ "res://.import/DoorSingle_Wall_SideA.obj-e6480f88009e135f9447dba1f9abd260.mesh", "res://.import/DoorSingle_Wall_SideA.obj-e6480f88009e135f9447dba1f9abd260.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+optimize_mesh=true

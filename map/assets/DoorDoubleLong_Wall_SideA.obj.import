@@ -1,0 +1,19 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/DoorDoubleLong_Wall_SideA.obj-539166514f7a5b8da8fa1c0aa565735b.mesh"
+
+[deps]
+
+files=[ "res://.import/DoorDoubleLong_Wall_SideA.obj-539166514f7a5b8da8fa1c0aa565735b.mesh" ]
+
+source_file="res://map/assets/DoorDoubleLong_Wall_SideA.obj"
+dest_files=[ "res://.import/DoorDoubleLong_Wall_SideA.obj-539166514f7a5b8da8fa1c0aa565735b.mesh", "res://.import/DoorDoubleLong_Wall_SideA.obj-539166514f7a5b8da8fa1c0aa565735b.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+optimize_mesh=true

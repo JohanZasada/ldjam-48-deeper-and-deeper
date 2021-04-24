@@ -1,0 +1,19 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/Props_Chest.obj-41783ef33af9a4ae8ae40f25070a20e1.mesh"
+
+[deps]
+
+files=[ "res://.import/Props_Chest.obj-41783ef33af9a4ae8ae40f25070a20e1.mesh" ]
+
+source_file="res://map/assets/Props_Chest.obj"
+dest_files=[ "res://.import/Props_Chest.obj-41783ef33af9a4ae8ae40f25070a20e1.mesh", "res://.import/Props_Chest.obj-41783ef33af9a4ae8ae40f25070a20e1.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+optimize_mesh=true

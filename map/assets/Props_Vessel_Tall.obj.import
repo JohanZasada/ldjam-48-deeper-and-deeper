@@ -1,0 +1,19 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/Props_Vessel_Tall.obj-bf30125b1ce5227cc99db9ca4b10f399.mesh"
+
+[deps]
+
+files=[ "res://.import/Props_Vessel_Tall.obj-bf30125b1ce5227cc99db9ca4b10f399.mesh" ]
+
+source_file="res://map/assets/Props_Vessel_Tall.obj"
+dest_files=[ "res://.import/Props_Vessel_Tall.obj-bf30125b1ce5227cc99db9ca4b10f399.mesh", "res://.import/Props_Vessel_Tall.obj-bf30125b1ce5227cc99db9ca4b10f399.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+optimize_mesh=true

@@ -1,0 +1,19 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/FloorTile_Corner.obj-fac129342efbdcb3ce7d33fa02428922.mesh"
+
+[deps]
+
+files=[ "res://.import/FloorTile_Corner.obj-fac129342efbdcb3ce7d33fa02428922.mesh" ]
+
+source_file="res://map/assets/FloorTile_Corner.obj"
+dest_files=[ "res://.import/FloorTile_Corner.obj-fac129342efbdcb3ce7d33fa02428922.mesh", "res://.import/FloorTile_Corner.obj-fac129342efbdcb3ce7d33fa02428922.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+optimize_mesh=true

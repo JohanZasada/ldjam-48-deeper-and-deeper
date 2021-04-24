@@ -1,0 +1,19 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/Props_Capsule.obj-4e41061aad2b1169a207469a83df34a9.mesh"
+
+[deps]
+
+files=[ "res://.import/Props_Capsule.obj-4e41061aad2b1169a207469a83df34a9.mesh" ]
+
+source_file="res://map/assets/Props_Capsule.obj"
+dest_files=[ "res://.import/Props_Capsule.obj-4e41061aad2b1169a207469a83df34a9.mesh", "res://.import/Props_Capsule.obj-4e41061aad2b1169a207469a83df34a9.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+optimize_mesh=true

@@ -1,0 +1,19 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/Props_Shelf_Tall.obj-4557961009811076d24f99eb08cc7102.mesh"
+
+[deps]
+
+files=[ "res://.import/Props_Shelf_Tall.obj-4557961009811076d24f99eb08cc7102.mesh" ]
+
+source_file="res://map/assets/Props_Shelf_Tall.obj"
+dest_files=[ "res://.import/Props_Shelf_Tall.obj-4557961009811076d24f99eb08cc7102.mesh", "res://.import/Props_Shelf_Tall.obj-4557961009811076d24f99eb08cc7102.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+optimize_mesh=true

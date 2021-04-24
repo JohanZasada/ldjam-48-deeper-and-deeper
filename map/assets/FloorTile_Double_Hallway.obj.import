@@ -1,0 +1,19 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/FloorTile_Double_Hallway.obj-423683b0762acad91d20f8991d452fda.mesh"
+
+[deps]
+
+files=[ "res://.import/FloorTile_Double_Hallway.obj-423683b0762acad91d20f8991d452fda.mesh" ]
+
+source_file="res://map/assets/FloorTile_Double_Hallway.obj"
+dest_files=[ "res://.import/FloorTile_Double_Hallway.obj-423683b0762acad91d20f8991d452fda.mesh", "res://.import/FloorTile_Double_Hallway.obj-423683b0762acad91d20f8991d452fda.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+optimize_mesh=true

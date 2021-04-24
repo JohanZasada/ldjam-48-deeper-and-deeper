@@ -1,0 +1,19 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/Props_Crate.obj-50788e19f22407766afb78681f5529e0.mesh"
+
+[deps]
+
+files=[ "res://.import/Props_Crate.obj-50788e19f22407766afb78681f5529e0.mesh" ]
+
+source_file="res://map/assets/Props_Crate.obj"
+dest_files=[ "res://.import/Props_Crate.obj-50788e19f22407766afb78681f5529e0.mesh", "res://.import/Props_Crate.obj-50788e19f22407766afb78681f5529e0.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+optimize_mesh=true
