@@ -7,6 +7,8 @@ export var gravity = 75
 
 var velocity = Vector3.ZERO
 
+var material = 0
+
 onready var camera = $Camera
 onready var pivot = $Pivot
 
@@ -36,4 +38,10 @@ func _physics_process(delta):
 	velocity.y -= gravity * delta
 	# Moving the character
 	velocity = move_and_slide(velocity, Vector3.UP)
-	
+
+func _on_Area_body_entered(body):
+	material += 1
+	body.get_parent().get_parent().remove_child(self)
+	body.get_parent().get_parent().queue_free()
+	print_debug(material)
+	pass # Replace with function body.
