@@ -17,18 +17,14 @@ func _physics_process(delta):
 	var direction = Vector3.ZERO
 
 	# We check for each move input and update the direction accordingly.
-	if Input.is_action_pressed("move_right"):
-		direction.x += 1
-	if Input.is_action_pressed("move_left"):
-		direction.x -= 1
-	if Input.is_action_pressed("move_up"):
-		direction.z -= 1
-	if Input.is_action_pressed("move_down"):
-		direction.z += 1
+	direction.x += Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
+	direction.z += Input.get_action_strength("move_down") - Input.get_action_strength("move_up")
 	
 	if direction != Vector3.ZERO:
-		direction = direction.normalized()
+		if direction.length() > 1:
+			direction = direction.normalized()
 		$Pivot.look_at(translation + direction, Vector3.UP)
+		print_debug(direction)
 	
 	# Ground velocity
 	velocity.x = direction.x * speed
