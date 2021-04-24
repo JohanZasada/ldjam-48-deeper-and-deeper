@@ -1,0 +1,19 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/RoofTile_SmallVents.obj-12416af7d7db1eda3603b9bae605014e.mesh"
+
+[deps]
+
+files=[ "res://.import/RoofTile_SmallVents.obj-12416af7d7db1eda3603b9bae605014e.mesh" ]
+
+source_file="res://room/assets/RoofTile_SmallVents.obj"
+dest_files=[ "res://.import/RoofTile_SmallVents.obj-12416af7d7db1eda3603b9bae605014e.mesh", "res://.import/RoofTile_SmallVents.obj-12416af7d7db1eda3603b9bae605014e.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+optimize_mesh=true
