@@ -1,7 +1,7 @@
 extends KinematicBody
 
 # How fast the player moves in meters per second.
-export var speed = 25
+export var speed = 7
 # The downward acceleration when in the air, in meters per second squared.
 export var gravity = 75
 
