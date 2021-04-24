@@ -16,7 +16,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.66055, -0.755768, 14.4025 )
 [node name="Room" parent="." instance=ExtResource( 1 )]
 
 [node name="Room2" parent="." instance=ExtResource( 1 )]
-transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -67.88, 0, 27.47 )
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -65.88, 0, 27.472 )
 
 [node name="Door" parent="." instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.206, -0.75, -14.5733 )
