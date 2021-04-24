@@ -1,0 +1,19 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/GearCannon_1.obj-fa1ec3ed64ccf991965dbc160cb0f281.mesh"
+
+[deps]
+
+files=[ "res://.import/GearCannon_1.obj-fa1ec3ed64ccf991965dbc160cb0f281.mesh" ]
+
+source_file="res://room/assets/GearCannon_1.obj"
+dest_files=[ "res://.import/GearCannon_1.obj-fa1ec3ed64ccf991965dbc160cb0f281.mesh", "res://.import/GearCannon_1.obj-fa1ec3ed64ccf991965dbc160cb0f281.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+optimize_mesh=true

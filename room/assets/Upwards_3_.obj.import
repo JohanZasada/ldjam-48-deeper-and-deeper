@@ -1,0 +1,19 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/Upwards_3_.obj-23fa120c1c50caa8801f6c00f73ba2e8.mesh"
+
+[deps]
+
+files=[ "res://.import/Upwards_3_.obj-23fa120c1c50caa8801f6c00f73ba2e8.mesh" ]
+
+source_file="res://room/assets/Upwards_3_.obj"
+dest_files=[ "res://.import/Upwards_3_.obj-23fa120c1c50caa8801f6c00f73ba2e8.mesh", "res://.import/Upwards_3_.obj-23fa120c1c50caa8801f6c00f73ba2e8.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+optimize_mesh=true

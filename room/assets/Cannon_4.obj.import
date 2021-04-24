@@ -1,0 +1,19 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/Cannon_4.obj-31e0f198fc23c39e1def1cf838d0a401.mesh"
+
+[deps]
+
+files=[ "res://.import/Cannon_4.obj-31e0f198fc23c39e1def1cf838d0a401.mesh" ]
+
+source_file="res://room/assets/Cannon_4.obj"
+dest_files=[ "res://.import/Cannon_4.obj-31e0f198fc23c39e1def1cf838d0a401.mesh", "res://.import/Cannon_4.obj-31e0f198fc23c39e1def1cf838d0a401.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+optimize_mesh=true

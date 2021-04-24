@@ -1,0 +1,19 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/Laser_1.obj-962b56b0be6e3612b9f80c456ad5d4c9.mesh"
+
+[deps]
+
+files=[ "res://.import/Laser_1.obj-962b56b0be6e3612b9f80c456ad5d4c9.mesh" ]
+
+source_file="res://room/assets/Laser_1.obj"
+dest_files=[ "res://.import/Laser_1.obj-962b56b0be6e3612b9f80c456ad5d4c9.mesh", "res://.import/Laser_1.obj-962b56b0be6e3612b9f80c456ad5d4c9.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+optimize_mesh=true

@@ -1,0 +1,19 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/Laser_Doble.obj-c479f585727917fc59148a8decb4a2d9.mesh"
+
+[deps]
+
+files=[ "res://.import/Laser_Doble.obj-c479f585727917fc59148a8decb4a2d9.mesh" ]
+
+source_file="res://room/assets/Laser_Doble.obj"
+dest_files=[ "res://.import/Laser_Doble.obj-c479f585727917fc59148a8decb4a2d9.mesh", "res://.import/Laser_Doble.obj-c479f585727917fc59148a8decb4a2d9.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+optimize_mesh=true

@@ -1,0 +1,19 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/Bomber_1.obj-c0e220c0f422f6fa087109e25abd9a55.mesh"
+
+[deps]
+
+files=[ "res://.import/Bomber_1.obj-c0e220c0f422f6fa087109e25abd9a55.mesh" ]
+
+source_file="res://room/assets/Bomber_1.obj"
+dest_files=[ "res://.import/Bomber_1.obj-c0e220c0f422f6fa087109e25abd9a55.mesh", "res://.import/Bomber_1.obj-c0e220c0f422f6fa087109e25abd9a55.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+optimize_mesh=true
