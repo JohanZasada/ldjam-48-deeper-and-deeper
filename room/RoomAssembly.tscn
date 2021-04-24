@@ -8,6 +8,9 @@
 
 [node name="RoomAssembly" type="Spatial"]
 
+[node name="BasicMaterial3" parent="." instance=ExtResource( 4 )]
+transform = Transform( 0.997105, 0, -0.0760403, 0, 1, 0, 0.0760403, 0, 0.997105, 10.188, 0.406866, -10.0868 )
+
 [node name="Drill" parent="." instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.66055, 0.326286, 14.4025 )
 
@@ -23,7 +26,16 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.769684, 0.332054, -14.5733 
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 33.1572, 0.332054, 23.2612 )
 
 [node name="BasicMaterial" parent="." instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.77091, 0.203433, 12.2092 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -23.9255, 0.203433, 2.04805 )
 
 [node name="Spatial" parent="." instance=ExtResource( 5 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.330333, 4.16629 )
+
+[node name="BasicMaterial2" parent="." instance=ExtResource( 4 )]
+transform = Transform( 0.867114, 0, 0.498109, 0, 1, 0, -0.498109, 0, 0.867114, -17.4079, 0.406866, 30.3707 )
+
+[node name="BasicMaterial4" parent="." instance=ExtResource( 4 )]
+transform = Transform( 0.996602, 0, 0.0823734, 0, 1, 0, -0.0823734, 0, 0.996602, 28.4557, 0.243749, 18.2175 )
+
+[node name="BasicMaterial5" parent="." instance=ExtResource( 4 )]
+transform = Transform( 0.990581, 0, 0.136926, 0, 1, 0, -0.136926, 0, 0.990581, -58.6499, 0.218413, 40.515 )
