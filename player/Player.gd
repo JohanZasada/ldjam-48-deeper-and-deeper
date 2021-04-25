@@ -114,3 +114,6 @@ func _on_Area_body_entered(body):
 		player_material += 1
 		ressource_node.remove_child(self)
 		ressource_node.queue_free()
+
+	var label = get_tree().get_root().get_node("Main/Control/Label")
+	label.set("text", "Material: %s" % player_material)
