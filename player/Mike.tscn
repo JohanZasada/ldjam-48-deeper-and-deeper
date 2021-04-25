@@ -22,27 +22,27 @@ animation = "Jump"
 [sub_resource type="AnimationNodeAnimation" id=4]
 animation = "Punch"
 
-[sub_resource type="AnimationNodeAnimation" id=11]
+[sub_resource type="AnimationNodeAnimation" id=5]
 animation = "SwordSlash"
 
-[sub_resource type="AnimationNodeAnimation" id=5]
+[sub_resource type="AnimationNodeAnimation" id=6]
 animation = "Idle-loop"
 
-[sub_resource type="AnimationNodeTimeScale" id=6]
+[sub_resource type="AnimationNodeTimeScale" id=7]
 
-[sub_resource type="AnimationNodeOneShot" id=7]
+[sub_resource type="AnimationNodeOneShot" id=8]
 fadein_time = 0.0
 fadeout_time = 0.4
 
-[sub_resource type="AnimationNodeOneShot" id=8]
+[sub_resource type="AnimationNodeOneShot" id=9]
 
-[sub_resource type="AnimationNodeOneShot" id=13]
+[sub_resource type="AnimationNodeOneShot" id=10]
 
-[sub_resource type="AnimationNodeBlend2" id=9]
+[sub_resource type="AnimationNodeBlend2" id=11]
 
-[sub_resource type="AnimationNodeBlendTree" id=10]
+[sub_resource type="AnimationNodeBlendTree" id=12]
 graph_offset = Vector2( 1071.78, 202 )
-nodes/Animation/node = SubResource( 5 )
+nodes/Animation/node = SubResource( 6 )
 nodes/Animation/position = Vector2( 400, -100 )
 "nodes/Animation 2/node" = SubResource( 2 )
 "nodes/Animation 2/position" = Vector2( 400, 20 )
@@ -50,20 +50,20 @@ nodes/Animation/position = Vector2( 400, -100 )
 "nodes/Animation 3/position" = Vector2( 400, 200 )
 "nodes/Animation 4/node" = SubResource( 4 )
 "nodes/Animation 4/position" = Vector2( 1000, 320 )
-"nodes/Animation 5/node" = SubResource( 11 )
+"nodes/Animation 5/node" = SubResource( 5 )
 "nodes/Animation 5/position" = Vector2( 1360, 440 )
-nodes/jump_scale/node = SubResource( 6 )
+nodes/jump_scale/node = SubResource( 7 )
 nodes/jump_scale/position = Vector2( 700, 180 )
-nodes/jump_shot/node = SubResource( 7 )
+nodes/jump_shot/node = SubResource( 8 )
 nodes/jump_shot/position = Vector2( 980, 80 )
 nodes/output/position = Vector2( 2020, 300 )
-nodes/punch1_shot/node = SubResource( 8 )
+nodes/punch1_shot/node = SubResource( 9 )
 nodes/punch1_shot/position = Vector2( 1320, 180 )
-nodes/punch2_shot/node = SubResource( 13 )
+nodes/punch2_shot/node = SubResource( 10 )
 nodes/punch2_shot/position = Vector2( 1660, 300 )
-nodes/run_blend/node = SubResource( 9 )
+nodes/run_blend/node = SubResource( 11 )
 nodes/run_blend/position = Vector2( 660, -100 )
-node_connections = [ "output", 0, "punch2_shot", "run_blend", 0, "Animation", "run_blend", 1, "Animation 2", "jump_shot", 0, "run_blend", "jump_shot", 1, "jump_scale", "jump_scale", 0, "Animation 3", "punch2_shot", 0, "punch1_shot", "punch2_shot", 1, "Animation 5", "punch1_shot", 0, "jump_shot", "punch1_shot", 1, "Animation 4" ]
+node_connections = [ "output", 0, "punch2_shot", "run_blend", 0, "Animation", "run_blend", 1, "Animation 2", "punch1_shot", 0, "jump_shot", "punch1_shot", 1, "Animation 4", "jump_scale", 0, "Animation 3", "jump_shot", 0, "run_blend", "jump_shot", 1, "jump_scale", "punch2_shot", 0, "punch1_shot", "punch2_shot", 1, "Animation 5" ]
 
 [node name="Mike" instance=ExtResource( 1 )]
 
@@ -71,7 +71,7 @@ node_connections = [ "output", 0, "punch2_shot", "run_blend", 0, "Animation", "r
 script = SubResource( 1 )
 
 [node name="AnimationTree" type="AnimationTree" parent="." index="2"]
-tree_root = SubResource( 10 )
+tree_root = SubResource( 12 )
 anim_player = NodePath("../AnimationPlayer")
 active = true
 parameters/jump_scale/scale = 1.0
