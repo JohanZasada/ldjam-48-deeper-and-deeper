@@ -1,7 +1,8 @@
 extends Spatial
 
 export var material_interval = 10
-export var life = 100
+export var life = 500
+export var max_life = 500
 
 onready var materialSpawn: Position3D = $MaterialSpawn
 
@@ -26,6 +27,7 @@ func hit(amount):
 
 func update_hud():
 	var progress = get_tree().get_root().get_node("Main/Control/ProgressBar")
+	progress.set("max_value", max_life)
 	progress.set("value", life)
 
 func get_enemies_target():
