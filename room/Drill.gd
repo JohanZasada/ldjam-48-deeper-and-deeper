@@ -1,6 +1,6 @@
 extends Spatial
 
-export var material_interval = 2
+export var material_interval = 10
 
 onready var materialSpawn: Position3D = $MaterialSpawn
 
@@ -16,4 +16,5 @@ func _ready():
 func spawn_material():
 	var material_instance = load("res://room/BasicMaterial.tscn").instance()
 	material_instance.transform.origin = to_global(materialSpawn.translation)
+	material_instance.rotation = materialSpawn.rotation
 	get_tree().get_root().get_node("Main/RoomAssembly").add_child(material_instance)
