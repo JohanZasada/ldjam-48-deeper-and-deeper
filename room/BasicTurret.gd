@@ -18,7 +18,7 @@ func _physics_process(_delta):
 			laser.visible = false
 				
 			for body in attackArea.get_overlapping_bodies():
-				if body.is_in_group("player"):
+				if body.is_in_group("ennemy"):
 					body_tracked = body
 			if body_tracked:
 				state = State.ATTACK
