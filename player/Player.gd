@@ -102,21 +102,19 @@ func _physics_process(delta):
 	velocity = move_and_slide(velocity, Vector3.UP)
 
 func _on_Area_body_entered(body):
-	var ressource_node = body.get_node("../")
-	var ressource_type = ressource_node.get_name()
 
 	if body.is_in_group("material"):
 		player_material += 5
 		# ressource_node.remove_child(self)
-		ressource_node.queue_free()
+		body.get_owner().queue_free()
 
-	if ressource_type == "MeshInstanceBasicEnergy":
+	if body.get_node("../").get_name() == "MeshInstanceBasicEnergy":
 		player_material += 1
 		# ressource_node.remove_child(self)
-		ressource_node.queue_free()
+		body.get_owner().queue_free()
 	
 	update_label()
-	
+
 func _input(event):
 	if event.is_action_pressed("use") and is_on_floor():
 		if player_material >= 3:
