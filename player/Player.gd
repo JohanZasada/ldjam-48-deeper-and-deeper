@@ -6,8 +6,7 @@ export var acceleration = 15
 
 var velocity = Vector3.ZERO
 
-var material = 0
-var energy = 0
+export var player_material = 0
 
 onready var camera = $Camera
 onready var pivot = $Pivot
@@ -50,11 +49,11 @@ func _on_Area_body_entered(body):
 	var ressource_type = ressource_node.get_name()
 
 	if ressource_type == "MeshInstanceBasicMaterial":
-		material += 1
+		player_material += 5
 		ressource_node.remove_child(self)
 		ressource_node.queue_free()
 
 	if ressource_type == "MeshInstanceBasicEnergy":
-		energy += 1
+		player_material += 1
 		ressource_node.remove_child(self)
 		ressource_node.queue_free()
