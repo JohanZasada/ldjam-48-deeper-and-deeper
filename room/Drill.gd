@@ -1,19 +1,18 @@
 extends Spatial
 
-export var drill_material = 0
+export var material_interval = 10
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	var material_timer = Timer.new()
+	material_timer.set_wait_time(material_interval)
+	material_timer.set_one_shot(false)
+	material_timer.connect("timeout", self, "spawn_material")
+	add_child(material_timer)
+	material_timer.start()
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
-
-
-func _on_DrillArea_body_entered(body):
-	var ressource_node = body.get_node("./")
-	if ressource_node.get_name() == "Player":
-		drill_material = ressource_node.get("player_material")
-		ressource_node.set("player_material", 0)
+func spawn_material():
+	var drill = get_tree().get_root().get_node("Main/RoomAssembly/Drill/Spawn")
+	var material_instance = load("res://room/BasicMaterial.tscn").instance()
+	material_instance.transform.origin = drill.transform.origin
+	get_tree().get_root().get_node("Main/RoomAssembly").add_child(material_instance)

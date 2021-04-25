@@ -29,6 +29,7 @@ data = PoolVector3Array( 0.3553, 1.2374, 0.0936, 0.3547, 1.2374, -0.096, 0.2732,
 
 [node name="Drill" type="Spatial"]
 script = ExtResource( 5 )
+material_interval = 5
 
 [node name="MeshInstance2" type="MeshInstance" parent="."]
 transform = Transform( 0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 2.18815, 0, 2.27702 )
@@ -44,7 +45,7 @@ material/4 = null
 [node name="CollisionShape" type="CollisionShape" parent="MeshInstance2/StaticBody"]
 shape = SubResource( 1 )
 
-[node name="MeshInstance" type="MeshInstance" parent="."]
+[node name="Spawn" type="MeshInstance" parent="."]
 transform = Transform( 0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 3.93085, 0, 0 )
 mesh = ExtResource( 3 )
 material/0 = null
@@ -53,25 +54,25 @@ material/2 = SubResource( 2 )
 material/3 = null
 material/4 = null
 
-[node name="StaticBody" type="StaticBody" parent="MeshInstance"]
+[node name="StaticBody" type="StaticBody" parent="Spawn"]
 
-[node name="CollisionShape" type="CollisionShape" parent="MeshInstance/StaticBody"]
+[node name="CollisionShape" type="CollisionShape" parent="Spawn/StaticBody"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.025924, 3.18145, 0.0181191 )
 shape = SubResource( 3 )
 
-[node name="CollisionShape2" type="CollisionShape" parent="MeshInstance/StaticBody"]
+[node name="CollisionShape2" type="CollisionShape" parent="Spawn/StaticBody"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.039294, 1.38227, -0.76045 )
 shape = SubResource( 4 )
 
-[node name="CollisionShape3" type="CollisionShape" parent="MeshInstance/StaticBody"]
+[node name="CollisionShape3" type="CollisionShape" parent="Spawn/StaticBody"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0518482, 0.280944, 0.036238 )
 shape = SubResource( 3 )
 
-[node name="DrillArea" type="Area" parent="MeshInstance"]
+[node name="DrillArea" type="Area" parent="Spawn"]
 collision_layer = 3
 collision_mask = 3
 
-[node name="CollisionShape" type="CollisionShape" parent="MeshInstance/DrillArea"]
+[node name="CollisionShape" type="CollisionShape" parent="Spawn/DrillArea"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0174, 1.02472, -0.0174 )
 shape = SubResource( 5 )
 
@@ -92,4 +93,4 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.81332, -0.773019, -0.268825 
 mesh = ExtResource( 4 )
 material/0 = null
 
-[connection signal="body_entered" from="MeshInstance/DrillArea" to="." method="_on_DrillArea_body_entered"]
+[connection signal="body_entered" from="Spawn/DrillArea" to="." method="_on_DrillArea_body_entered"]
