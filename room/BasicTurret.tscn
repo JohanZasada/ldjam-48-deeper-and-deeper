@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://room/assets/basic_turret.tres" type="ArrayMesh" id=1]
 [ext_resource path="res://room/BasicTurret.gd" type="Script" id=2]
@@ -11,9 +11,12 @@ height = 1.11566
 radius = 0.549876
 height = 2.00627
 
-[sub_resource type="CylinderShape" id=4]
+[sub_resource type="CylinderShape" id=3]
 radius = 10.0
 height = 0.229522
+
+[sub_resource type="CylinderShape" id=4]
+radius = 1.88207
 
 [node name="BasicTurret" type="Spatial"]
 script = ExtResource( 2 )
@@ -29,7 +32,9 @@ material/2 = null
 material/3 = null
 material/4 = null
 
-[node name="StaticBody" type="StaticBody" parent="Pivot"]
+[node name="StaticBody" type="StaticBody" parent="Pivot" groups=[
+"turret",
+]]
 collision_layer = 16
 collision_mask = 3
 
@@ -51,12 +56,20 @@ collision_mask = 3
 
 [node name="CollisionShape" type="CollisionShape" parent="AttackArea"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0 )
-shape = SubResource( 4 )
+shape = SubResource( 3 )
 
 [node name="ShotTimer" type="Timer" parent="."]
 process_mode = 0
 wait_time = 0.5
 
 [node name="Bullets" type="Node" parent="."]
+
+[node name="EnemiesTarget" type="Area" parent="."]
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionShape" type="CollisionShape" parent="EnemiesTarget"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
+shape = SubResource( 4 )
 
 [connection signal="timeout" from="ShotTimer" to="." method="_on_ShotTimer_timeout"]

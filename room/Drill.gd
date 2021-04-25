@@ -20,12 +20,13 @@ func spawn_material():
 	material_instance.rotation = materialSpawn.rotation
 	get_tree().get_root().get_node("Main/RoomAssembly").add_child(material_instance)
 
-func _on_EnnemiesTarget_body_entered(body):
-	if body.is_in_group("ennemy"):
-		life -= 5
-		body.get_owner().queue_free()
-		update_hud()
+func hit(amount):
+	life -= amount
+	update_hud()
 
 func update_hud():
 	var label = get_tree().get_root().get_node("Main/Control/ProgressBar")
 	label.set("value", life)
+
+func get_enemies_target():
+	return $EnemiesTarget
