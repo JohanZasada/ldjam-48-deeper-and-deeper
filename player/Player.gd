@@ -32,6 +32,8 @@ const PUNCH2_PARAM = "parameters/punch2_shot/active"
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	animationTree.set("parameters/jump_scale/scale", 1.7)
+	animationTree.set("parameters/punch1_scale/scale", 1.7)
+	animationTree.set("parameters/punch2_scale/scale", 1.7)
 
 func save_punch_direction(direction):
 	if direction.length() > punch_move_speed:

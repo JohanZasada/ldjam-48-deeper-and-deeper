@@ -5679,6 +5679,10 @@ anims/Walk = SubResource( 18 )
 anims/Walk_Holding = SubResource( 19 )
 anims/Yes = SubResource( 20 )
 
+[node name="AnimationTree" parent="Pivot/Mike" index="2"]
+parameters/punch1_scale/scale = 1.0
+parameters/punch2_scale/scale = 1.0
+
 [node name="Camera" type="Camera" parent="."]
 transform = Transform( 0.707107, -0.5, 0.5, 0, 0.707107, 0.707107, -0.707107, -0.5, 0.5, 18, 28, 18 )
 current = true
