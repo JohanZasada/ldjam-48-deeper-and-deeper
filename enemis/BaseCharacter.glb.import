@@ -2,12 +2,12 @@
 
 importer="scene"
 type="PackedScene"
-path="res://.import/BaseCharacter.glb-efc7b69a357a50360104503c7610a542.scn"
+path="res://.import/BaseCharacter.glb-998e65e7625b61bfdadb1a87154ebcab.scn"
 
 [deps]
 
-source_file="res://ennemis/BaseCharacter.glb"
-dest_files=[ "res://.import/BaseCharacter.glb-efc7b69a357a50360104503c7610a542.scn" ]
+source_file="res://enemis/BaseCharacter.glb"
+dest_files=[ "res://.import/BaseCharacter.glb-998e65e7625b61bfdadb1a87154ebcab.scn" ]
 
 [params]
 

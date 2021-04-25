@@ -8,11 +8,15 @@ export var player_material = 20
 enum State {MOVE, PUNCH1, PUNCH2, PUNCH3}
 var state = State.MOVE
 
-export var speed = 7
+export var speed = 10
 export var gravity = 75
 export var acceleration = 15
 export var jump_impulse = 22
 export var punch_move_speed = 2
+
+func add_material(amount):
+	player_material += amount
+	update_label()
 
 ###############
 
@@ -34,6 +38,7 @@ func _ready():
 	animationTree.set("parameters/jump_scale/scale", 1.7)
 	animationTree.set("parameters/punch1_scale/scale", 1.7)
 	animationTree.set("parameters/punch2_scale/scale", 1.7)
+	update_label()
 
 func save_punch_direction(direction):
 	if direction.length() > punch_move_speed:
@@ -104,12 +109,12 @@ func _physics_process(delta):
 func _on_Area_body_entered(body):
 
 	if body.is_in_group("material"):
-		player_material += 5
+		add_material(5)
 		# ressource_node.remove_child(self)
 		body.get_owner().queue_free()
 
 	if body.get_node("../").get_name() == "MeshInstanceBasicEnergy":
-		player_material += 1
+		add_material(1)
 		# ressource_node.remove_child(self)
 		body.get_owner().queue_free()
 	
@@ -118,11 +123,10 @@ func _on_Area_body_entered(body):
 func _input(event):
 	if event.is_action_pressed("use") and is_on_floor():
 		if player_material >= 3:
-			player_material -= 3
+			add_material(-3)
 			var turret = load("res://room/BasicTurret.tscn").instance()
 			turret.transform.origin = transform.origin + Vector3.FORWARD.rotated(Vector3.UP, pivot.rotation.y) * 2.5
 			get_tree().get_root().get_node("Main/RoomAssembly").add_child(turret)
-			update_label()
 
 func update_label():
 	var label = get_tree().get_root().get_node("Main/Control/Label")
