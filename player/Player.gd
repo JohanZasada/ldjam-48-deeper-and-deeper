@@ -8,6 +8,7 @@ export var jump_impulse = 22
 var velocity = Vector3.ZERO
 
 var material = 0
+var energy = 0
 
 onready var camera = $Camera
 onready var pivot = $Pivot
@@ -56,9 +57,15 @@ func _physics_process(delta):
 	velocity = move_and_slide(velocity, Vector3.UP)
 
 func _on_Area_body_entered(body):
-	material += 1
-	var material_node = body.get_node("../")
-	material_node.remove_child(self)
-	material_node.queue_free()
-	print_debug(material)
-	pass # Replace with function body.
+	var ressource_node = body.get_node("../")
+	var ressource_type = ressource_node.get_name()
+
+	if ressource_type == "MeshInstanceBasicMaterial":
+		material += 1
+		ressource_node.remove_child(self)
+		ressource_node.queue_free()
+
+	if ressource_type == "MeshInstanceBasicEnergy":
+		energy += 1
+		ressource_node.remove_child(self)
+		ressource_node.queue_free()
