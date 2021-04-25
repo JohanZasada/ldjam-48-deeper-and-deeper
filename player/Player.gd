@@ -48,8 +48,6 @@ func _physics_process(delta):
 	direction.x += Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
 	direction.z += Input.get_action_strength("move_down") - Input.get_action_strength("move_up")
 	direction = direction.rotated(Vector3.UP, camera.rotation.y)
-	if direction.length() < 0.1:
-		direction = Vector3.ZERO
 
 	# Punch
 	if state == State.PUNCH1:
@@ -120,13 +118,11 @@ func _on_Area_body_entered(body):
 	update_label()
 	
 func _input(event):
-	if event.is_action_pressed("used") and is_on_floor():
+	if event.is_action_pressed("use") and is_on_floor():
 		if player_material >= 3:
 			player_material -= 3
 			var turret = load("res://room/BasicTurret.tscn").instance()
-			var Player = get_tree().get_root().get_node("Main/Player").transform.origin
-			turret.transform.origin = Vector3(Player.x + 4, Player.y, Player.z)
-			print_debug(turret)
+			turret.transform.origin = transform.origin + Vector3.FORWARD.rotated(Vector3.UP, pivot.rotation.y) * 2.5
 			get_tree().get_root().get_node("Main/RoomAssembly").add_child(turret)
 			update_label()
 
