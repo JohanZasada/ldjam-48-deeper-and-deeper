@@ -25,8 +25,8 @@ func hit(amount):
 	update_hud()
 
 func update_hud():
-	var label = get_tree().get_root().get_node("Main/Control/ProgressBar")
-	label.set("value", life)
+	var progress = get_tree().get_root().get_node("Main/Control/ProgressBar")
+	progress.set("value", life)
 
 func get_enemies_target():
 	return $EnemiesTarget
