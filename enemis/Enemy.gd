@@ -4,7 +4,7 @@ extends KinematicBody
 
 export var health = 100
 
-enum State { MOVE, ATTACK }
+enum State { MOVE, ATTACK, DEAD }
 var state = State.MOVE
 
 export var speed = 5
@@ -30,8 +30,12 @@ const PARAM_SHOT = "parameters/punch_shot/active"
 
 func hit(amount):
 	health -= amount
+	if health <= 0:
+		state = State.DEAD
+		_AnimationTree.set(PARAM_DEAD, 1)
+		$CollisionShape.disabled = true
+		$DeathTimer.start()
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
 	_AnimationTree.set("parameters/hit_scale/scale", 1.0)
 	_AnimationTree.set("parameters/punch_scale/scale", 1.0)
@@ -71,6 +75,8 @@ func _physics_process(delta):
 				if not _AnimationTree.get(PARAM_SHOT):
 					_AnimationTree.set(PARAM_SHOT, true)
 					body_attack.hit(hit_amount)
+		State.DEAD:
+			return
 				
 
 	# Ground velocity
@@ -80,3 +86,7 @@ func _physics_process(delta):
 	velocity.y -= gravity * delta
 	# Moving the character
 	velocity = move_and_slide(velocity, Vector3.UP)
+
+
+func _on_DeathTimer_timeout():
+	queue_free()

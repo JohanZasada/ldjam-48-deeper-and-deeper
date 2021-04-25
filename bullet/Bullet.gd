@@ -1,6 +1,6 @@
 extends RigidBody
 
-const DAMAGE = 1
+const DAMAGE = 20
 const SPEED = 500
 
 func _ready():
@@ -10,8 +10,8 @@ func _physics_process(delta):
 	apply_impulse(transform.basis.z, -transform.basis.z * SPEED * delta) 
 
 func _on_Bullet_body_entered(body):
-	if body.is_in_group("player"):
-		body.add_material(DAMAGE)
+	if body.is_in_group("enemy"):
+		body.hit(DAMAGE)
 	queue_free()
 
 

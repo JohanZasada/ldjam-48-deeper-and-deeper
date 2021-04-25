@@ -24,15 +24,16 @@ func _ready():
 
 func _physics_process(_delta):
 	match state:
-		State.SEARCH:				
+		State.SEARCH:			
+			body_tracked = null	
 			for body in _attackArea.get_overlapping_bodies():
-				if body.is_in_group("player"):
+				if body.is_in_group("enemy"):
 					body_tracked = body
 			if body_tracked:
 				state = State.ATTACK
 				_ShotTimer.start()
 		State.ATTACK:
-			if not _attackArea.overlaps_body(body_tracked):
+			if not is_instance_valid(body_tracked) or not _attackArea.overlaps_body(body_tracked):
 				state = State.SEARCH
 				_ShotTimer.stop()
 			else:

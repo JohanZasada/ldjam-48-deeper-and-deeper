@@ -42,7 +42,7 @@ input_1/auto_advance = false
 [sub_resource type="AnimationNodeTimeScale" id=13]
 
 [sub_resource type="AnimationNodeBlendTree" id=14]
-graph_offset = Vector2( -263, 20.25 )
+graph_offset = Vector2( 0, 306 )
 nodes/Animation/node = SubResource( 6 )
 nodes/Animation/position = Vector2( -420, 40 )
 "nodes/Animation 2/node" = SubResource( 2 )
@@ -102,7 +102,7 @@ parameters/hit_scale/scale = 1.0
 parameters/hit_shot/active = false
 parameters/punch_scale/scale = 1.0
 parameters/punch_shot/active = false
-parameters/run_blend/blend_amount = 0.0
+parameters/run_blend/blend_amount = 1.0
 parameters/run_scale/scale = 1.0
 
 [node name="AttackArea" type="Area" parent="."]
@@ -120,5 +120,12 @@ collision_mask = 16
 [node name="CollisionShape" type="CollisionShape" parent="TargetArea"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
 shape = SubResource( 16 )
+
+[node name="DeathTimer" type="Timer" parent="."]
+process_mode = 0
+wait_time = 3.0
+one_shot = true
+
+[connection signal="timeout" from="DeathTimer" to="." method="_on_DeathTimer_timeout"]
 
 [editable path="Pivot/BaseCharacter"]
