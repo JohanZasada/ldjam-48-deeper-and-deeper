@@ -5645,7 +5645,9 @@ tracks/42/keys = PoolRealArray( 0, 1, 0, 0, 0, -8.67362e-19, -1.86265e-09, -3.25
 radius = 2.0
 height = 2.5
 
-[node name="KinematicBody" type="KinematicBody"]
+[node name="KinematicBody" type="KinematicBody" groups=[
+"player",
+]]
 script = ExtResource( 2 )
 
 [node name="Pivot" type="Spatial" parent="."]
@@ -5676,10 +5678,6 @@ anims/SwordSlash = SubResource( 17 )
 anims/Walk = SubResource( 18 )
 anims/Walk_Holding = SubResource( 19 )
 anims/Yes = SubResource( 20 )
-
-[node name="AnimationTree" parent="Pivot/Mike" index="2"]
-parameters/punch1_shot/active = false
-parameters/punch2_shot/active = false
 
 [node name="Camera" type="Camera" parent="."]
 transform = Transform( 0.707107, -0.5, 0.5, 0, 0.707107, 0.707107, -0.707107, -0.5, 0.5, 18, 28, 18 )
