@@ -3,6 +3,7 @@ extends KinematicBody
 export var speed = 7
 export var gravity = 75
 export var acceleration = 15
+export var jump_impulse = 22
 
 var velocity = Vector3.ZERO
 
@@ -13,6 +14,8 @@ onready var pivot = $Pivot
 onready var animationTree = $Pivot/Mike/AnimationTree
 
 const RUN_PARAM = "parameters/run_blend/blend_amount"
+const JUMP_PARAM = "parameters/jump_shot/active"
+const JUMP_SCALE_PARAM = "parameters/jump_scale/scale"
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -23,6 +26,11 @@ func _physics_process(delta):
 	# We create a local variable to store the input direction.
 	var direction = Vector3.ZERO
 	var da = delta * acceleration
+	
+	if is_on_floor() and Input.is_action_just_pressed("jump"):
+		velocity.y += jump_impulse
+		animationTree.set(JUMP_PARAM, true)
+		animationTree.set(JUMP_SCALE_PARAM, 1.7)
 
 	# We check for each move input and update the direction accordingly.
 	direction.x += Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
