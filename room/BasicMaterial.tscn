@@ -1,25 +1,21 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://room/assets/Props_Chest.obj" type="ArrayMesh" id=1]
+[ext_resource path="res://room/assets/Props_Crate.obj" type="ArrayMesh" id=1]
 
 [sub_resource type="BoxShape" id=1]
-extents = Vector3( 0.639383, 0.465183, 0.402981 )
+extents = Vector3( 0.390373, 0.388578, 0.402981 )
 
 [node name="SpatialBasicMaterial" type="Spatial"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.66408 )
 
 [node name="MeshInstanceBasicMaterial" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.42727e-07, 0 )
 mesh = ExtResource( 1 )
 material/0 = null
 material/1 = null
 material/2 = null
 material/3 = null
 material/4 = null
-material/5 = null
-material/6 = null
-material/7 = null
-material/8 = null
-material/9 = null
 
 [node name="StaticBody" type="StaticBody" parent="." groups=[
 "material",
@@ -28,5 +24,5 @@ collision_layer = 4
 collision_mask = 0
 
 [node name="CollisionShape" type="CollisionShape" parent="StaticBody"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.465037, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.402577, 0.0104098 )
 shape = SubResource( 1 )
