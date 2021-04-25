@@ -30,7 +30,7 @@ func _physics_process(_delta):
 	match state:
 		State.SEARCH:				
 			for body in _attackArea.get_overlapping_bodies():
-				if body.is_in_group("player"):
+				if body.is_in_group("enemy"):
 					body_tracked = body
 			if body_tracked:
 				state = State.ATTACK
