@@ -107,12 +107,12 @@ func _on_Area_body_entered(body):
 
 	if ressource_type == "MeshInstanceBasicMaterial":
 		player_material += 5
-		ressource_node.remove_child(self)
+		# ressource_node.remove_child(self)
 		ressource_node.queue_free()
 
 	if ressource_type == "MeshInstanceBasicEnergy":
 		player_material += 1
-		ressource_node.remove_child(self)
+		# ressource_node.remove_child(self)
 		ressource_node.queue_free()
 	
 	update_label()
