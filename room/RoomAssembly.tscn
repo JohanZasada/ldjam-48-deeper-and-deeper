@@ -13,7 +13,7 @@
 transform = Transform( 0.997105, 0, -0.0760403, 0, 1, 0, 0.0760403, 0, 0.997105, 10.188, 0.406866, -10.0868 )
 
 [node name="Drill" parent="." instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.66055, 0.326286, 14.4025 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.59209, -0.031827, 14.5554 )
 
 [node name="Room" parent="." instance=ExtResource( 1 )]
 
