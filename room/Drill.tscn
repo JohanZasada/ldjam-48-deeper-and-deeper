@@ -14,11 +14,11 @@ flags_transparent = true
 flags_use_shadow_to_opacity = true
 
 [sub_resource type="CylinderShape" id=3]
-radius = 1.05481
+radius = 0.841962
 height = 0.648636
 
 [sub_resource type="BoxShape" id=4]
-extents = Vector3( 1, 1, 0.0916687 )
+extents = Vector3( 0.668385, 1, 0.0916687 )
 
 [sub_resource type="CylinderShape" id=5]
 radius = 0.606999
@@ -56,12 +56,16 @@ material/4 = null
 [node name="StaticBody" type="StaticBody" parent="MeshInstance"]
 
 [node name="CollisionShape" type="CollisionShape" parent="MeshInstance/StaticBody"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.025924, 0.321938, 0.0181191 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.025924, 3.18145, 0.0181191 )
 shape = SubResource( 3 )
 
 [node name="CollisionShape2" type="CollisionShape" parent="MeshInstance/StaticBody"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0394137, 1.38227, -0.900688 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.039294, 1.38227, -0.76045 )
 shape = SubResource( 4 )
+
+[node name="CollisionShape3" type="CollisionShape" parent="MeshInstance/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0518482, 0.280944, 0.036238 )
+shape = SubResource( 3 )
 
 [node name="DrillArea" type="Area" parent="MeshInstance"]
 collision_layer = 3
