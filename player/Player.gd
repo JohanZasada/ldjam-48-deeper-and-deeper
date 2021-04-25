@@ -27,6 +27,9 @@ func _physics_process(delta):
 	direction.z += Input.get_action_strength("move_down") - Input.get_action_strength("move_up")
 	direction = direction.rotated(Vector3.UP, camera.rotation.y)
 	
+	if direction.length() < 0.2:
+		direction = Vector3.ZERO
+
 	if direction != Vector3.ZERO:
 		if direction.length() > 1:
 			direction = direction.normalized()
