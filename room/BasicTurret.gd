@@ -11,6 +11,8 @@ var state = State.SEARCH
 
 var body_tracked: PhysicsBody = null
 
+export var life = 10.0
+
 onready var _Pivot = $Pivot
 onready var _attackArea: Area = $AttackArea
 onready var _BulletStartPos = $Pivot/BulletStartPos
@@ -18,9 +20,11 @@ onready var _ShotTimer = $ShotTimer
 onready var _Bullets = $Bullets
 
 onready var Bullet = preload("res://bullet/Bullet.tscn")
+var life_bare = load("res://hud/LifeBar.tscn").instance()
 
 func _ready():
 	_ShotTimer.stop()
+	setup_life_hud()
 
 func _physics_process(_delta):
 	match state:
@@ -46,6 +50,23 @@ func _on_ShotTimer_timeout():
 	_Bullets.add_child(b)
 	b.global_transform.origin = _BulletStartPos.global_transform.origin
 	b.rotation.y = rotation.y + _Pivot.rotation.y
+	manage_life(0.2)
+	
+func setup_life_hud():
+	print_debug("life bare setup")
+	life_bare.transform.origin = Vector3(0, 2, 0)
+	life_bare.rotation = Vector3(90, 0, 0)
+	self.add_child(life_bare)
+	
+func _on_LifeArea_body_entered(body):
+	if body.is_in_group("ennemy"):
+		manage_life(1)
+
+func manage_life(health):
+	life -= health
+	life_bare.scale.y = life / 10
+	if life <= 0:
+		self.queue_free()
 
 func hit(amount):
 	health -= amount

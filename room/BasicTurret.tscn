@@ -15,6 +15,9 @@ height = 2.00627
 radius = 10.0
 height = 0.229522
 
+[sub_resource type="BoxShape" id=4]
+extents = Vector3( 0.583058, 1.09724, 1.11041 )
+
 [sub_resource type="CylinderShape" id=4]
 radius = 1.88207
 
@@ -64,6 +67,11 @@ wait_time = 0.5
 
 [node name="Bullets" type="Node" parent="."]
 
+[node name="LifeArea" type="Area" parent="."]
+
+[node name="CollisionShape" type="CollisionShape" parent="LifeArea"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.00845, -0.557062 )
+
 [node name="EnemiesTarget" type="Area" parent="."]
 collision_layer = 16
 collision_mask = 0
@@ -73,3 +81,4 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
 shape = SubResource( 4 )
 
 [connection signal="timeout" from="ShotTimer" to="." method="_on_ShotTimer_timeout"]
+[connection signal="body_entered" from="LifeArea" to="." method="_on_LifeArea_body_entered"]

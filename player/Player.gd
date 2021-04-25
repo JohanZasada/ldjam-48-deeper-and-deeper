@@ -112,10 +112,6 @@ func _on_Area_body_entered(body):
 		add_material(5)
 		body.get_owner().queue_free()
 
-	if body.get_node("../").get_name() == "MeshInstanceBasicEnergy":
-		add_material(1)
-		body.get_owner().queue_free()
-
 func _input(event):
 	if event.is_action_pressed("use") and is_on_floor():
 		if _TurretSpawn.get_overlapping_bodies().size() == 0:
