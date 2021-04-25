@@ -11,7 +11,6 @@
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
 transform = Transform( 0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 15.2628, 0.136832, 22.4245 )
-collision_mask = 7
 
 [node name="Control" parent="." instance=ExtResource( 3 )]
 anchor_right = 0.0

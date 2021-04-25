@@ -105,7 +105,7 @@ func _on_Area_body_entered(body):
 	var ressource_node = body.get_node("../")
 	var ressource_type = ressource_node.get_name()
 
-	if ressource_type == "MeshInstanceBasicMaterial":
+	if body.is_in_group("material"):
 		player_material += 5
 		# ressource_node.remove_child(self)
 		ressource_node.queue_free()

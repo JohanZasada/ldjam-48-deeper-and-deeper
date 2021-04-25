@@ -1,8 +1,12 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://player/Mike.tscn" type="PackedScene" id=1]
 [ext_resource path="res://player/Player.gd" type="Script" id=2]
 [ext_resource path="res://player/Mike_Texture.material" type="Material" id=3]
+
+[sub_resource type="CapsuleShape" id=21]
+radius = 1.73031
+height = 2.5
 
 [sub_resource type="ArrayMesh" id=1]
 resource_name = "Mike"
@@ -5641,14 +5645,19 @@ tracks/42/imported = true
 tracks/42/enabled = true
 tracks/42/keys = PoolRealArray( 0, 1, 0, 0, 0, -8.67362e-19, -1.86265e-09, -3.25963e-09, 1, 1, 1, 1, 0.0666667, 1, 0.000280142, -0.0126493, -0.00477123, 0.00294555, 0.000102918, -9.89083e-05, 0.999996, 1, 1, 1, 0.133333, 1, 0.000846766, -0.0382333, -0.0144217, 0.00890386, 0.000310962, -0.000299149, 0.99996, 1, 1, 1, 0.466667, 1, 0.00428441, -0.19345, -0.0729704, 0.0450492, 0.00157026, -0.00151681, 0.998982, 1, 1, 1, 0.533333, 1, 0.00473635, -0.213856, -0.0806675, 0.0497966, 0.00173553, -0.00167689, 0.998756, 1, 1, 1, 0.6, 1, 0.00502792, -0.227021, -0.0856335, 0.0528584, 0.00184215, -0.00178009, 0.998599, 1, 1, 1, 0.666667, 1, 0.00514316, -0.232225, -0.0875962, 0.0540682, 0.00188429, -0.00182085, 0.998534, 1, 1, 1, 0.733333, 1, 0.00509946, -0.230252, -0.0868521, 0.0536095, 0.00186831, -0.00180539, 0.998559, 1, 1, 1, 0.8, 1, 0.00498828, -0.225231, -0.0849583, 0.0524421, 0.00182766, -0.00176605, 0.998621, 1, 1, 1, 0.866667, 1, 0.00481371, -0.217349, -0.0819852, 0.0506091, 0.00176385, -0.00170425, 0.998716, 1, 1, 1, 1, 1, 0.00431209, -0.1947, -0.0734417, 0.0453397, 0.00158051, -0.00152647, 0.998969, 1, 1, 1, 1.75, 1, 0, 0, 0, -8.67362e-19, -1.86265e-09, -3.25963e-09, 1, 1, 1, 1 )
 
-[sub_resource type="CapsuleShape" id=21]
-radius = 2.0
-height = 2.5
+[sub_resource type="CylinderShape" id=22]
+radius = 3.21109
+height = 5.71675
 
 [node name="KinematicBody" type="KinematicBody" groups=[
 "player",
 ]]
+collision_mask = 7
 script = ExtResource( 2 )
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 2.98007, 0 )
+shape = SubResource( 21 )
 
 [node name="Pivot" type="Spatial" parent="."]
 
@@ -5685,19 +5694,12 @@ current = true
 size = 15.0
 
 [node name="Area" type="Area" parent="."]
-collision_layer = 2
-collision_mask = 2
+collision_layer = 0
+collision_mask = 4
 
 [node name="CollisionShape" type="CollisionShape" parent="Area"]
-transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 3.25189, 0 )
-shape = SubResource( 21 )
-
-[node name="CollisionShape" type="CollisionShape" parent="."]
-transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 3.25189, 0 )
-shape = SubResource( 21 )
-__meta__ = {
-"_editor_description_": ""
-}
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.9, 0 )
+shape = SubResource( 22 )
 
 [node name="Camera" type="Camera" parent="."]
 transform = Transform( 0.707107, -0.5, 0.5, 0, 0.707107, 0.707107, -0.707107, -0.5, 0.5, 18, 28, 18 )
