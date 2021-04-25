@@ -3,8 +3,7 @@ extends KinematicBody
 
 ###############
 
-var material = 0
-var energy = 0
+export var player_material = 0
 
 enum State {MOVE, PUNCH1, PUNCH2, PUNCH3}
 var state = State.MOVE
@@ -49,7 +48,7 @@ func _physics_process(delta):
 	direction = direction.rotated(Vector3.UP, camera.rotation.y)
 	if direction.length() < 0.1:
 		direction = Vector3.ZERO
-	
+
 	# Punch
 	if state == State.PUNCH1:
 		if not animationTree.get(PUNCH1_PARAM):
@@ -84,16 +83,16 @@ func _physics_process(delta):
 			if direction.length() > 1:
 				direction = direction.normalized()
 			pivot.look_at(translation + direction, Vector3.UP)
-		
+
 		animationTree.set(RUN_PARAM, lerp(animationTree.get(RUN_PARAM), direction.length(), da))
-		
+
 		direction *= speed
 
 	# Jump
 	if state == State.MOVE and is_on_floor() and Input.is_action_just_pressed("jump"):
 		velocity.y += jump_impulse
 		animationTree.set(JUMP_PARAM, true)
-	
+
 	# Ground velocity
 	velocity.x = lerp(velocity.x, direction.x, da)
 	velocity.z = lerp(velocity.z, direction.z, da)
@@ -107,11 +106,11 @@ func _on_Area_body_entered(body):
 	var ressource_type = ressource_node.get_name()
 
 	if ressource_type == "MeshInstanceBasicMaterial":
-		material += 1
+		player_material += 5
 		ressource_node.remove_child(self)
 		ressource_node.queue_free()
 
 	if ressource_type == "MeshInstanceBasicEnergy":
-		energy += 1
+		player_material += 1
 		ressource_node.remove_child(self)
 		ressource_node.queue_free()
