@@ -118,7 +118,7 @@ func _on_Area_body_entered(body):
 	update_label()
 	
 func _input(event):
-	if event.is_action_pressed("used"):
+	if event.is_action_pressed("used") and is_on_floor():
 		if player_material >= 3:
 			player_material -= 3
 			var turret = load("res://room/BasicTurret.tscn").instance()
