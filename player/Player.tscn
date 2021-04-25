@@ -5678,7 +5678,8 @@ anims/Walk_Holding = SubResource( 19 )
 anims/Yes = SubResource( 20 )
 
 [node name="AnimationTree" parent="Pivot/Mike" index="2"]
-parameters/jump_scale/scale = 1.0
+parameters/punch1_shot/active = false
+parameters/punch2_shot/active = false
 
 [node name="Camera" type="Camera" parent="."]
 transform = Transform( 0.707107, -0.5, 0.5, 0, 0.707107, 0.707107, -0.707107, -0.5, 0.5, 18, 28, 18 )
