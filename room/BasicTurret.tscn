@@ -18,6 +18,9 @@ height = 0.229522
 [sub_resource type="BoxShape" id=4]
 extents = Vector3( 0.583058, 1.09724, 1.11041 )
 
+[sub_resource type="CylinderShape" id=4]
+radius = 1.88207
+
 [node name="BasicTurret" type="Spatial"]
 script = ExtResource( 2 )
 
@@ -32,7 +35,9 @@ material/2 = null
 material/3 = null
 material/4 = null
 
-[node name="StaticBody" type="StaticBody" parent="Pivot"]
+[node name="StaticBody" type="StaticBody" parent="Pivot" groups=[
+"turret",
+]]
 collision_layer = 16
 collision_mask = 3
 
@@ -66,6 +71,13 @@ wait_time = 0.5
 
 [node name="CollisionShape" type="CollisionShape" parent="LifeArea"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.00845, -0.557062 )
+
+[node name="EnemiesTarget" type="Area" parent="."]
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionShape" type="CollisionShape" parent="EnemiesTarget"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
 shape = SubResource( 4 )
 
 [connection signal="timeout" from="ShotTimer" to="." method="_on_ShotTimer_timeout"]
