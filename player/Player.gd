@@ -3,7 +3,7 @@ extends KinematicBody
 
 ###############
 
-export var player_material = 0
+export var player_material = 20
 
 enum State {MOVE, PUNCH1, PUNCH2, PUNCH3}
 var state = State.MOVE
@@ -116,6 +116,20 @@ func _on_Area_body_entered(body):
 		player_material += 1
 		# ressource_node.remove_child(self)
 		ressource_node.queue_free()
+	
+	update_label()
+	
+func _input(event):
+	if event.is_action_pressed("used") and is_on_floor():
+		if player_material >= 3:
+			player_material -= 3
+			var turret = load("res://room/BasicTurret.tscn").instance()
+			var Player = get_tree().get_root().get_node("Main/Player").transform.origin
+			turret.transform.origin = Vector3(Player.x + 4, Player.y, Player.z)
+			print_debug(turret)
+			get_tree().get_root().get_node("Main/RoomAssembly").add_child(turret)
+			update_label()
 
+func update_label():
 	var label = get_tree().get_root().get_node("Main/Control/Label")
 	label.set("text", "Material: %s" % player_material)
