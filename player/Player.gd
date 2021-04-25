@@ -25,8 +25,9 @@ var direction_saved = Vector3.ZERO
 var continue_punch = false
 
 onready var camera = $Camera
-onready var pivot = $Pivot
+onready var _Pivot = $Pivot
 onready var animationTree = $Pivot/Mike/AnimationTree
+onready var _TurretSpawn = $Pivot/TurretSpawn
 
 const RUN_PARAM = "parameters/run_blend/blend_amount"
 const JUMP_PARAM = "parameters/jump_shot/active"
@@ -82,12 +83,12 @@ func _physics_process(delta):
 	if state == State.PUNCH1 or state == State.PUNCH2:
 		direction = direction_saved
 		if direction != Vector3.ZERO:
-			pivot.look_at(translation + direction, Vector3.UP)
+			_Pivot.look_at(translation + direction, Vector3.UP)
 	else:
 		if direction != Vector3.ZERO:
 			if direction.length() > 1:
 				direction = direction.normalized()
-			pivot.look_at(translation + direction, Vector3.UP)
+			_Pivot.look_at(translation + direction, Vector3.UP)
 
 		animationTree.set(RUN_PARAM, lerp(animationTree.get(RUN_PARAM), direction.length(), da))
 
@@ -107,26 +108,23 @@ func _physics_process(delta):
 	velocity = move_and_slide(velocity, Vector3.UP)
 
 func _on_Area_body_entered(body):
-
 	if body.is_in_group("material"):
 		add_material(5)
-		# ressource_node.remove_child(self)
 		body.get_owner().queue_free()
 
 	if body.get_node("../").get_name() == "MeshInstanceBasicEnergy":
 		add_material(1)
-		# ressource_node.remove_child(self)
 		body.get_owner().queue_free()
-	
-	update_label()
 
 func _input(event):
 	if event.is_action_pressed("use") and is_on_floor():
-		if player_material >= 3:
-			add_material(-3)
-			var turret = load("res://room/BasicTurret.tscn").instance()
-			turret.transform.origin = transform.origin + Vector3.FORWARD.rotated(Vector3.UP, pivot.rotation.y) * 2.5
-			get_tree().get_root().get_node("Main/RoomAssembly").add_child(turret)
+		if _TurretSpawn.get_overlapping_bodies().size() == 0:
+			if player_material >= 3:
+				add_material(-3)
+				var turret = load("res://room/BasicTurret.tscn").instance()
+				turret.global_transform.origin = _TurretSpawn.global_transform.origin
+				turret.rotation.y = _Pivot.rotation.y
+				get_tree().get_root().get_node("Main/RoomAssembly").add_child(turret)
 
 func update_label():
 	var label = get_tree().get_root().get_node("Main/Control/Label")
