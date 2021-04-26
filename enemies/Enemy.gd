@@ -3,6 +3,7 @@ extends KinematicBody
 ############################
 
 export var health = 100
+export var max_health = 100
 
 enum State { MOVE, ATTACK, DEAD }
 var state = State.MOVE
@@ -24,6 +25,7 @@ onready var _AttackArea: Area = $AttackArea
 onready var _TargetArea: Area = $TargetArea
 onready var _PunchTimer: Timer = $PunchTimer
 onready var _Drill = get_tree().get_root().get_node("Main/RoomAssembly/Drill")
+onready var _LifeBarRed = $LifeBarRed
 
 const PARAM_DEAD = "parameters/dead_transition/current"
 const PARAM_RUN = "parameters/run_blend/blend_amount"
@@ -31,6 +33,7 @@ const PARAM_SHOT = "parameters/punch_shot/active"
 
 func hit(amount):
 	health -= amount
+	update_health_bar()
 	if health <= 0:
 		state = State.DEAD
 		_AnimationTree.set(PARAM_DEAD, 1)
@@ -103,3 +106,7 @@ func _on_PunchTimer_timeout():
 		state = State.MOVE
 	else:
 		body_attack.hit(hit_amount)
+		
+		
+func update_health_bar():
+	_LifeBarRed.set_bar_scale(float(health) / max_health)
