@@ -3,7 +3,7 @@ extends Spatial
 ############################
 
 export var health = 100.0
-export var max_health = 100.0
+export var max_health = 150.0
 
 enum State { SEARCH, ATTACK }
 var state = State.SEARCH
@@ -58,6 +58,14 @@ func hit(amount):
 		health = 0
 		queue_free()
 	update_health_bar()
+
+func repare(amount):
+	var max_amount = max_health - health
+	if amount > max_amount:
+		amount = max_amount
+	health += amount
+	update_health_bar()
+	return amount
 
 func update_health_bar():
 	_LifeBar.set_bar_scale(float(health) / max_health)
