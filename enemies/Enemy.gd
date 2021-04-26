@@ -26,7 +26,7 @@ onready var _AttackArea: Area = $AttackArea
 onready var _TargetArea: Area = $TargetArea
 onready var _PunchTimer: Timer = $PunchTimer
 onready var _Drill = get_tree().get_root().get_node("Main/RoomAssembly/Drill")
-onready var _PathFinding = get_tree().get_root().get_node("Main/RoomAssembly/Pathfinding")
+onready var _PathFinding = get_tree().get_root().get_node("Main/Pathfinding")
 onready var _LifeBarRed = $LifeBarRed
 
 const PARAM_DEAD = "parameters/dead_transition/current"
