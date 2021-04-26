@@ -118,9 +118,8 @@ func _input(event):
 			if player_material >= 3:
 				add_material(-3)
 				var turret = load("res://room/BasicTurret.tscn").instance()
-				turret.global_transform.origin = _TurretSpawn.global_transform.origin
-				turret.rotation.y = _Pivot.rotation.y
 				get_tree().get_root().get_node("Main/RoomAssembly").add_child(turret)
+				turret.global_transform.origin = _TurretSpawn.global_transform.origin
 
 func update_label():
 	var label = get_tree().get_root().get_node("Main/Control/Label")
