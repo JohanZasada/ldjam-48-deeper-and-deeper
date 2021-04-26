@@ -126,6 +126,11 @@ process_mode = 0
 wait_time = 3.0
 one_shot = true
 
+[node name="PunchTimer" type="Timer" parent="."]
+wait_time = 0.4
+one_shot = true
+
 [connection signal="timeout" from="DeathTimer" to="." method="_on_DeathTimer_timeout"]
+[connection signal="timeout" from="PunchTimer" to="." method="_on_PunchTimer_timeout"]
 
 [editable path="Pivot/BaseCharacter"]

@@ -22,6 +22,7 @@ onready var _Pivot = $Pivot
 onready var _AnimationTree: AnimationTree = $AnimationTree
 onready var _AttackArea: Area = $AttackArea
 onready var _TargetArea: Area = $TargetArea
+onready var _PunchTimer: Timer = $PunchTimer
 onready var _Drill = get_tree().get_root().get_node("Main/RoomAssembly/Drill")
 
 const PARAM_DEAD = "parameters/dead_transition/current"
@@ -35,6 +36,7 @@ func hit(amount):
 		_AnimationTree.set(PARAM_DEAD, 1)
 		$CollisionShape.disabled = true
 		$DeathTimer.start()
+		_PunchTimer.stop()
 
 func _ready():
 	_AnimationTree.set("parameters/hit_scale/scale", 1.0)
@@ -77,7 +79,7 @@ func _physics_process(delta):
 				_AnimationTree.set(PARAM_RUN, 0.0)
 				if not _AnimationTree.get(PARAM_SHOT):
 					_AnimationTree.set(PARAM_SHOT, true)
-					body_attack.hit(hit_amount)
+					_PunchTimer.start()
 		State.DEAD:
 			return
 				
@@ -93,3 +95,11 @@ func _physics_process(delta):
 
 func _on_DeathTimer_timeout():
 	queue_free()
+
+
+func _on_PunchTimer_timeout():
+	if body_attack == null or not is_instance_valid(body_attack):
+		body_attack = null
+		state = State.MOVE
+	else:
+		body_attack.hit(hit_amount)

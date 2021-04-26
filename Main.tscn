@@ -23,22 +23,4 @@ margin_bottom = 600.0
 transform = Transform( 0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, 0, 0.4, 0 )
 
 [node name="Enemy2" parent="." instance=ExtResource( 4 )]
-transform = Transform( 0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, 1.62254, 0.4, 0 )
-
-[node name="Enemy3" parent="." instance=ExtResource( 4 )]
-transform = Transform( 0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, 1.67007, 0.4, -1.70171 )
-
-[node name="Enemy4" parent="." instance=ExtResource( 4 )]
-transform = Transform( 0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, -0.0611243, 0.4, -1.88457 )
-
-[node name="Enemy5" parent="." instance=ExtResource( 4 )]
-transform = Transform( 0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, -0.0172415, 0.4, -3.40792 )
-
-[node name="Enemy6" parent="." instance=ExtResource( 4 )]
-transform = Transform( 0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, 1.6053, 0.4, -3.40792 )
-
-[node name="Enemy7" parent="." instance=ExtResource( 4 )]
-transform = Transform( 0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, 1.65283, 0.4, -5.10963 )
-
-[node name="Enemy8" parent="." instance=ExtResource( 4 )]
-transform = Transform( 0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, -0.0783658, 0.4, -5.29249 )
+transform = Transform( 0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, 1.38114, 0.4, -0.0436959 )
