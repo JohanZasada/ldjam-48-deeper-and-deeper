@@ -43,7 +43,7 @@ func repare(amount):
 
 func update_hud():
 	var progress = get_tree().get_root().get_node("Main/Control/ProgressBar")
-	var score = get_tree().get_root().get_node("Main/Control/Popup/Label2")
+	var score = get_tree().get_root().get_node("Main/Control/Popup/ColorRect/Label2")
 	progress.set("max_value", max_life)
 	progress.set("value", life)
 	score.set("text", "Score: %s" % total_material)

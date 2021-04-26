@@ -33,6 +33,7 @@ size = 32
 font_data = ExtResource( 1 )
 
 [sub_resource type="DynamicFont" id=8]
+size = 19
 extra_spacing_top = 4
 font_data = ExtResource( 1 )
 
@@ -74,42 +75,55 @@ __meta__ = {
 
 [node name="Popup" type="Popup" parent="."]
 pause_mode = 2
-visible = true
-margin_left = 147.0
-margin_top = 68.0
-margin_right = 901.0
-margin_bottom = 514.0
+margin_left = 6.0
+margin_top = 6.0
+margin_right = 473.0
+margin_bottom = 352.0
+popup_exclusive = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="Popup"]
-margin_left = 186.964
-margin_top = 151.335
-margin_right = 540.964
-margin_bottom = 227.335
-custom_fonts/font = SubResource( 5 )
-custom_colors/font_color = Color( 0.819608, 0.501961, 0.054902, 1 )
-text = "GAME OVER"
+[node name="ColorRect" type="ColorRect" parent="Popup"]
+margin_left = 2.76199
+margin_top = 2.58112
+margin_right = 459.762
+margin_bottom = 342.581
+color = Color( 0.819608, 0.501961, 0.054902, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="Label2" type="Label" parent="Popup"]
-margin_left = 304.343
-margin_top = 237.601
-margin_right = 406.343
-margin_bottom = 270.601
+[node name="Label" type="Label" parent="Popup/ColorRect"]
+margin_left = 51.931
+margin_top = 66.4689
+margin_right = 405.931
+margin_bottom = 142.469
+custom_fonts/font = SubResource( 5 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "GAME OVER"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="Popup/ColorRect"]
+margin_left = 169.31
+margin_top = 152.735
+margin_right = 271.31
+margin_bottom = 185.735
 custom_fonts/font = SubResource( 6 )
 text = "Score: 0"
 
-[node name="Panel" type="Panel" parent="Popup"]
-margin_left = 270.932
-margin_top = 312.027
-margin_right = 447.932
-margin_bottom = 352.027
+[node name="Panel" type="Panel" parent="Popup/ColorRect"]
+margin_left = 135.899
+margin_top = 227.161
+margin_right = 312.899
+margin_bottom = 267.161
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="Popup/Panel"]
+[node name="Label" type="Label" parent="Popup/ColorRect/Panel"]
 margin_left = 47.5604
 margin_top = 1.00116
 margin_right = 120.56
@@ -119,25 +133,48 @@ text = "Retry"
 
 [node name="Popup2" type="Popup" parent="."]
 pause_mode = 2
-visible = true
-margin_left = 138.0
-margin_top = 137.0
-margin_right = 955.0
-margin_bottom = 583.0
+margin_left = 9.0
+margin_top = 8.0
+margin_right = 469.0
+margin_bottom = 352.0
+popup_exclusive = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="StartPanet" type="Panel" parent="Popup2"]
-margin_left = 280.127
-margin_top = 286.264
-margin_right = 457.127
-margin_bottom = 326.264
+[node name="ColorRect" type="ColorRect" parent="Popup2"]
+margin_top = 1.0
+margin_right = 457.0
+margin_bottom = 341.0
+color = Color( 0.819608, 0.501961, 0.054902, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="Popup2/StartPanet"]
+[node name="RichTextLabel" type="RichTextLabel" parent="Popup2/ColorRect"]
+margin_left = 22.4756
+margin_top = 24.3496
+margin_right = 370.476
+margin_bottom = 247.35
+custom_fonts/normal_font = SubResource( 8 )
+text = "Protect your drill !
+
+ZQSD or WASD or Joystick for move
+F or Y (xbox pad) for construct a turret
+Space or A (xbox pad) for jump
+Right clic or B (xbox pad) for kick
+Left clic or X (xbox pad) for repair"
+
+[node name="StartPanet" type="Panel" parent="Popup2/ColorRect"]
+margin_left = 267.428
+margin_top = 283.089
+margin_right = 444.428
+margin_bottom = 323.089
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Popup2/ColorRect/StartPanet"]
 margin_left = 37.727
 margin_top = 1.89087
 margin_right = 135.727
@@ -145,16 +182,5 @@ margin_bottom = 39.8909
 custom_fonts/font = SubResource( 7 )
 text = "START"
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Popup2"]
-margin_left = 472.536
-margin_top = 254.254
-margin_right = 898.536
-margin_bottom = 360.254
-custom_fonts/normal_font = SubResource( 8 )
-text = "ZQSD or Joystick for move
-F or Y (xbox pad) for construct a turret
-Space or A (xbox pad) for jump
-E or B (xbox pad) for kick"
-
-[connection signal="gui_input" from="Popup/Panel" to="." method="_on_Panel_gui_input"]
-[connection signal="gui_input" from="Popup2/StartPanet" to="." method="_on_StartPanet_gui_input"]
+[connection signal="gui_input" from="Popup/ColorRect/Panel" to="." method="_on_Panel_gui_input"]
+[connection signal="gui_input" from="Popup2/ColorRect/StartPanet" to="." method="_on_StartPanet_gui_input"]
