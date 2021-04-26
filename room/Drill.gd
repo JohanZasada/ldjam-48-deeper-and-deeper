@@ -31,6 +31,7 @@ func hit(amount):
 	if life <= 0:
 		var popup = get_tree().get_root().get_node("Main/Control/Popup")
 		popup.popup()
+		get_tree().paused = true
 
 func update_hud():
 	var progress = get_tree().get_root().get_node("Main/Control/ProgressBar")
