@@ -41,12 +41,13 @@ func hit(amount):
 		$DeathTimer.start()
 		_PunchTimer.stop()
 
+
 func _ready():
 	_AnimationTree.set("parameters/hit_scale/scale", 1.0)
 	_AnimationTree.set("parameters/punch_scale/scale", 1.0)
 	_AnimationTree.set("parameters/run_scale/scale", 1.0)
 
-#
+
 func _physics_process(delta):
 	var direction = Vector3.ZERO
 	var da = delta * acceleration
@@ -63,9 +64,8 @@ func _physics_process(delta):
 						break
 				if body_attack == null:
 					body_attack = _Drill
-			
-			var body_target = body_attack.get_enemies_target()
 
+			var body_target = body_attack.get_enemies_target()
 			var target_pos = to_local(body_target.global_transform.origin)
 			target_pos.y = translation.y
 			_Pivot.look_at(to_global(target_pos), Vector3.UP)
@@ -85,7 +85,6 @@ func _physics_process(delta):
 					_PunchTimer.start()
 		State.DEAD:
 			return
-				
 
 	# Ground velocity
 	velocity.x = lerp(velocity.x, direction.x, da)
@@ -106,7 +105,9 @@ func _on_PunchTimer_timeout():
 		state = State.MOVE
 	else:
 		body_attack.hit(hit_amount)
-		
-		
+
+
 func update_health_bar():
 	_LifeBarRed.set_bar_scale(float(health) / max_health)
+	if health <= 0:
+		_LifeBarRed.queue_free()
