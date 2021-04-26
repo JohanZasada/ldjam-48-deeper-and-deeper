@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://player/Mike.tscn" type="PackedScene" id=1]
 [ext_resource path="res://player/Player.gd" type="Script" id=2]
@@ -5634,6 +5634,10 @@ radius = 3.07859
 height = 21.5561
 
 [sub_resource type="CylinderShape" id=24]
+radius = 2.94322
+height = 5.97179
+
+[sub_resource type="CylinderShape" id=25]
 radius = 3.21109
 height = 5.71675
 
@@ -5690,6 +5694,14 @@ shape = SubResource( 22 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5, 10 )
 shape = SubResource( 23 )
 
+[node name="AttackArea" type="Area" parent="Pivot"]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape" type="CollisionShape" parent="Pivot/AttackArea"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9.53674e-07, 3, -3.48658 )
+shape = SubResource( 24 )
+
 [node name="Camera" type="Camera" parent="."]
 transform = Transform( 0.707107, -0.5, 0.5, 0, 0.707107, 0.707107, -0.707107, -0.5, 0.5, 18, 28, 18 )
 current = true
@@ -5701,13 +5713,19 @@ collision_mask = 4
 
 [node name="CollisionShape" type="CollisionShape" parent="Area"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.9, 0 )
-shape = SubResource( 24 )
+shape = SubResource( 25 )
 
 [node name="Camera" type="Camera" parent="."]
 transform = Transform( 0.707107, -0.5, 0.5, 0, 0.707107, 0.707107, -0.707107, -0.5, 0.5, 18, 28, 18 )
 current = true
 size = 15.0
 
+[node name="AttackTimer" type="Timer" parent="."]
+process_mode = 0
+wait_time = 0.4
+one_shot = true
+
 [connection signal="body_entered" from="Area" to="." method="_on_Area_body_entered"]
+[connection signal="timeout" from="AttackTimer" to="." method="_on_AttackTimer_timeout"]
 
 [editable path="Pivot/Mike"]

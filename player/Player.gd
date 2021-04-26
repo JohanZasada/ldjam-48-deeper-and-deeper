@@ -13,6 +13,7 @@ export var gravity = 75
 export var acceleration = 15
 export var jump_impulse = 22
 export var punch_move_speed = 2
+export var hit_amount = 50
 
 func add_material(amount):
 	player_material += amount
@@ -28,6 +29,8 @@ onready var camera = $Camera
 onready var _Pivot = $Pivot
 onready var animationTree = $Pivot/Mike/AnimationTree
 onready var _TurretSpawn = $Pivot/TurretSpawn
+onready var _AttackArea = $Pivot/AttackArea
+onready var _AttackTimer = $AttackTimer
 
 const RUN_PARAM = "parameters/run_blend/blend_amount"
 const JUMP_PARAM = "parameters/jump_shot/active"
@@ -63,6 +66,7 @@ func _physics_process(delta):
 				continue_punch = false
 				save_punch_direction(direction)
 				animationTree.set(PUNCH2_PARAM, true)
+				_AttackTimer.start()
 			else:
 				state = State.MOVE
 	elif state == State.PUNCH2:
@@ -76,6 +80,7 @@ func _physics_process(delta):
 			continue_punch = false
 			save_punch_direction(direction)
 			animationTree.set(PUNCH1_PARAM, true)
+			_AttackTimer.start()
 		elif state == State.PUNCH1:
 			continue_punch = true
 
@@ -124,3 +129,17 @@ func _input(event):
 func update_label():
 	var label = get_tree().get_root().get_node("Main/Control/Label")
 	label.set("text", "Material: %s" % player_material)
+
+
+func _on_AttackTimer_timeout():
+	var min_length = 0
+	var nearest_body = null
+	for body in _AttackArea.get_overlapping_bodies():
+		if body.is_in_group("enemy"):
+			var length = to_local(body.global_transform.origin).length()
+			if nearest_body == null or length < min_length:
+				min_length = length
+				nearest_body = body
+	
+	if nearest_body != null:
+		nearest_body.hit(hit_amount)

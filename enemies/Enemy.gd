@@ -32,14 +32,18 @@ const PARAM_RUN = "parameters/run_blend/blend_amount"
 const PARAM_SHOT = "parameters/punch_shot/active"
 
 func hit(amount):
-	health -= amount
-	update_health_bar()
 	if health <= 0:
+		return
+
+	health -= amount
+	if health <= 0:
+		health = 0
 		state = State.DEAD
 		_AnimationTree.set(PARAM_DEAD, 1)
 		$CollisionShape.disabled = true
 		$DeathTimer.start()
 		_PunchTimer.stop()
+	update_health_bar()
 
 
 func _ready():
@@ -109,5 +113,5 @@ func _on_PunchTimer_timeout():
 
 func update_health_bar():
 	_LifeBarRed.set_bar_scale(float(health) / max_health)
-	if health <= 0:
+	if health <= 0 and is_instance_valid(_LifeBarRed):
 		_LifeBarRed.queue_free()
