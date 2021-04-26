@@ -39,3 +39,6 @@ transform = Transform( 0.996602, 0, 0.0823734, 0, 1, 0, -0.0823734, 0, 0.996602,
 
 [node name="BasicMaterial5" parent="." instance=ExtResource( 4 )]
 transform = Transform( 0.990581, 0, 0.136926, 0, 1, 0, -0.136926, 0, 0.990581, -58.6499, 0.218413, 40.515 )
+
+[node name="BasicMaterial6" parent="." instance=ExtResource( 4 )]
+transform = Transform( 0.707106, 0, 0.707106, 0, 1, 0, -0.707106, 0, 0.707106, 6.52967, 0.578038, 14.5656 )
