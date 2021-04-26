@@ -1,8 +1,6 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=2 format=2]
 
 [ext_resource path="res://room/RoomMeshLibrary.tres" type="MeshLibrary" id=1]
-
-[sub_resource type="Environment" id=1]
 
 [node name="Room" type="Spatial"]
 
@@ -18,10 +16,8 @@ __meta__ = {
 "_editor_floor_": Vector3( 0, 0, 0 )
 }
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource( 1 )
-
-[node name="DirectionalLight" type="DirectionalLight" parent="WorldEnvironment"]
-transform = Transform( 0.258819, -0.933013, 0.25, 0, 0.258819, 0.965926, -0.965926, -0.25, 0.0669873, 0, 12, 0 )
-light_energy = 4.58
-light_bake_mode = 2
+[node name="DirectionalLight" type="DirectionalLight" parent="."]
+transform = Transform( 0.707107, -0.683013, 0.183013, 0, 0.258819, 0.965926, -0.707107, -0.683013, 0.183013, -0.157883, 14.6509, 0.891528 )
+light_energy = 10.0
+shadow_enabled = true
+editor_only = true
