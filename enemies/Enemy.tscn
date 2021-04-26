@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://enemies/Enemy.gd" type="Script" id=1]
 [ext_resource path="res://enemies/BaseCharacter.glb" type="PackedScene" id=2]
@@ -21,30 +21,35 @@ animation = "Idle-loop"
 animation = "Death"
 
 [sub_resource type="AnimationNodeAnimation" id=6]
+animation = "Victory"
+
+[sub_resource type="AnimationNodeAnimation" id=7]
 animation = "Run-loop"
 
-[sub_resource type="AnimationNodeTransition" id=7]
-input_count = 2
+[sub_resource type="AnimationNodeTransition" id=8]
+input_count = 3
 input_0/name = "live"
 input_0/auto_advance = false
 input_1/name = "dead"
 input_1/auto_advance = false
+input_2/name = "victory"
+input_2/auto_advance = false
 
-[sub_resource type="AnimationNodeTimeScale" id=8]
+[sub_resource type="AnimationNodeTimeScale" id=9]
 
-[sub_resource type="AnimationNodeOneShot" id=9]
+[sub_resource type="AnimationNodeOneShot" id=10]
 
-[sub_resource type="AnimationNodeTimeScale" id=10]
+[sub_resource type="AnimationNodeTimeScale" id=11]
 
-[sub_resource type="AnimationNodeOneShot" id=11]
+[sub_resource type="AnimationNodeOneShot" id=12]
 
-[sub_resource type="AnimationNodeBlend2" id=12]
+[sub_resource type="AnimationNodeBlend2" id=13]
 
-[sub_resource type="AnimationNodeTimeScale" id=13]
+[sub_resource type="AnimationNodeTimeScale" id=14]
 
-[sub_resource type="AnimationNodeBlendTree" id=14]
+[sub_resource type="AnimationNodeBlendTree" id=15]
 graph_offset = Vector2( 0, 306 )
-nodes/Animation/node = SubResource( 6 )
+nodes/Animation/node = SubResource( 7 )
 nodes/Animation/position = Vector2( -420, 40 )
 "nodes/Animation 2/node" = SubResource( 2 )
 "nodes/Animation 2/position" = Vector2( -140, 200 )
@@ -54,27 +59,29 @@ nodes/Animation/position = Vector2( -420, 40 )
 "nodes/Animation 4/position" = Vector2( -420, -100 )
 "nodes/Animation 5/node" = SubResource( 5 )
 "nodes/Animation 5/position" = Vector2( 600, 540 )
-nodes/dead_transition/node = SubResource( 7 )
+"nodes/Animation 6/node" = SubResource( 6 )
+"nodes/Animation 6/position" = Vector2( 600, 660 )
+nodes/dead_transition/node = SubResource( 8 )
 nodes/dead_transition/position = Vector2( 920, 420 )
-nodes/hit_scale/node = SubResource( 8 )
+nodes/hit_scale/node = SubResource( 9 )
 nodes/hit_scale/position = Vector2( 40, 340 )
-nodes/hit_shot/node = SubResource( 9 )
+nodes/hit_shot/node = SubResource( 10 )
 nodes/hit_shot/position = Vector2( 580, 300 )
 nodes/output/position = Vector2( 1220, 420 )
-nodes/punch_scale/node = SubResource( 10 )
+nodes/punch_scale/node = SubResource( 11 )
 nodes/punch_scale/position = Vector2( 40, 200 )
-nodes/punch_shot/node = SubResource( 11 )
+nodes/punch_shot/node = SubResource( 12 )
 nodes/punch_shot/position = Vector2( 320, 160 )
-nodes/run_blend/node = SubResource( 12 )
+nodes/run_blend/node = SubResource( 13 )
 nodes/run_blend/position = Vector2( 20, -40 )
-nodes/run_scale/node = SubResource( 13 )
+nodes/run_scale/node = SubResource( 14 )
 nodes/run_scale/position = Vector2( -220, 40 )
-node_connections = [ "output", 0, "dead_transition", "punch_scale", 0, "Animation 2", "run_scale", 0, "Animation", "punch_shot", 0, "run_blend", "punch_shot", 1, "punch_scale", "run_blend", 0, "Animation 4", "run_blend", 1, "run_scale", "dead_transition", 0, "hit_shot", "dead_transition", 1, "Animation 5", "hit_scale", 0, "Animation 3", "hit_shot", 0, "punch_shot", "hit_shot", 1, "hit_scale" ]
-
-[sub_resource type="CylinderShape" id=15]
-radius = 1.72031
+node_connections = [ "output", 0, "dead_transition", "run_blend", 0, "Animation 4", "run_blend", 1, "run_scale", "hit_shot", 0, "punch_shot", "hit_shot", 1, "hit_scale", "run_scale", 0, "Animation", "punch_shot", 0, "run_blend", "punch_shot", 1, "punch_scale", "punch_scale", 0, "Animation 2", "hit_scale", 0, "Animation 3", "dead_transition", 0, "hit_shot", "dead_transition", 1, "Animation 5", "dead_transition", 2, "Animation 6" ]
 
 [sub_resource type="CylinderShape" id=16]
+radius = 1.72031
+
+[sub_resource type="CylinderShape" id=17]
 radius = 12.0
 
 [node name="Enemy" type="KinematicBody" groups=[
@@ -95,7 +102,7 @@ shape = SubResource( 1 )
 transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0 )
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
-tree_root = SubResource( 14 )
+tree_root = SubResource( 15 )
 anim_player = NodePath("../Pivot/BaseCharacter/AnimationPlayer")
 active = true
 parameters/dead_transition/current = 0
@@ -112,7 +119,7 @@ collision_mask = 16
 
 [node name="CollisionShape" type="CollisionShape" parent="AttackArea"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
-shape = SubResource( 15 )
+shape = SubResource( 16 )
 
 [node name="TargetArea" type="Area" parent="."]
 collision_layer = 0
@@ -120,7 +127,7 @@ collision_mask = 16
 
 [node name="CollisionShape" type="CollisionShape" parent="TargetArea"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
-shape = SubResource( 16 )
+shape = SubResource( 17 )
 
 [node name="DeathTimer" type="Timer" parent="."]
 process_mode = 0

@@ -45,6 +45,10 @@ func hit(amount):
 		_PunchTimer.stop()
 	update_health_bar()
 
+func set_victory():
+	state = State.DEAD
+	_AnimationTree.set(PARAM_DEAD, 2)
+	
 
 func _ready():
 	_AnimationTree.set("parameters/hit_scale/scale", 1.0)
