@@ -48,6 +48,9 @@ func _physics_process(delta):
 
 	match state:
 		State.MOVE:
+			if not is_instance_valid(body_attack):
+				body_attack = null
+
 			if body_attack == null or body_attack == _Drill:
 				for body in _TargetArea.get_overlapping_bodies():
 					if body.is_in_group("turret"):

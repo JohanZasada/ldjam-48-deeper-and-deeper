@@ -8,3 +8,6 @@ func _ready():
 
 func _physics_process(delta):
 	rotation.y += delta * speed
+
+func set_bar_scale(bar_scale):
+	set_scale(Vector3(scale.x, bar_scale, scale.z))

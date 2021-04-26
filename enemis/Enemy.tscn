@@ -68,7 +68,7 @@ nodes/run_blend/node = SubResource( 12 )
 nodes/run_blend/position = Vector2( 20, -40 )
 nodes/run_scale/node = SubResource( 13 )
 nodes/run_scale/position = Vector2( -220, 40 )
-node_connections = [ "output", 0, "dead_transition", "run_blend", 0, "Animation 4", "run_blend", 1, "run_scale", "hit_scale", 0, "Animation 3", "hit_shot", 0, "punch_shot", "hit_shot", 1, "hit_scale", "run_scale", 0, "Animation", "punch_scale", 0, "Animation 2", "dead_transition", 0, "hit_shot", "dead_transition", 1, "Animation 5", "punch_shot", 0, "run_blend", "punch_shot", 1, "punch_scale" ]
+node_connections = [ "output", 0, "dead_transition", "run_blend", 0, "Animation 4", "run_blend", 1, "run_scale", "punch_shot", 0, "run_blend", "punch_shot", 1, "punch_scale", "hit_scale", 0, "Animation 3", "run_scale", 0, "Animation", "dead_transition", 0, "hit_shot", "dead_transition", 1, "Animation 5", "punch_scale", 0, "Animation 2", "hit_shot", 0, "punch_shot", "hit_shot", 1, "hit_scale" ]
 
 [sub_resource type="CylinderShape" id=15]
 radius = 1.72031
@@ -102,7 +102,7 @@ parameters/hit_scale/scale = 1.0
 parameters/hit_shot/active = false
 parameters/punch_scale/scale = 1.0
 parameters/punch_shot/active = false
-parameters/run_blend/blend_amount = 1.0
+parameters/run_blend/blend_amount = 0.0
 parameters/run_scale/scale = 1.0
 
 [node name="AttackArea" type="Area" parent="."]
