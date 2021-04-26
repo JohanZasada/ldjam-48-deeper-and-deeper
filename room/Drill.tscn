@@ -23,11 +23,11 @@ height = 0.648636
 [sub_resource type="BoxShape" id=4]
 extents = Vector3( 0.668385, 1, 0.0916687 )
 
-[sub_resource type="CylinderShape" id=5]
-radius = 2.0277
+[sub_resource type="CylinderShape" id=8]
+radius = 2.26552
 height = 2.20873
 
-[sub_resource type="CylinderShape" id=6]
+[sub_resource type="CylinderShape" id=9]
 radius = 1.74619
 height = 7.20764
 
@@ -44,6 +44,8 @@ material/3 = null
 material/4 = null
 
 [node name="StaticBody" type="StaticBody" parent="MeshInstance2"]
+collision_layer = 19
+collision_mask = 0
 
 [node name="CollisionShape" type="CollisionShape" parent="MeshInstance2/StaticBody"]
 transform = Transform( 0.707107, -0.707107, 2.10734e-08, 5.96046e-08, -3.09086e-08, 1, -0.707107, -0.707107, -6.32203e-08, 0, 0.615204, 0 )
@@ -59,6 +61,8 @@ material/3 = null
 material/4 = null
 
 [node name="StaticBody" type="StaticBody" parent="Spawn"]
+collision_layer = 17
+collision_mask = 0
 
 [node name="CollisionShape" type="CollisionShape" parent="Spawn/StaticBody"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.025924, 3.18145, 0.0181191 )
@@ -101,11 +105,11 @@ collision_mask = 0
 
 [node name="CollisionShape" type="CollisionShape" parent="EnemiesTarget"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1, 0 )
-shape = SubResource( 5 )
+shape = SubResource( 8 )
 
 [node name="StaticBody" type="StaticBody" parent="."]
-collision_layer = 16
+collision_layer = 19
 
 [node name="CollisionShape" type="CollisionShape" parent="StaticBody"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.60343, 0 )
-shape = SubResource( 6 )
+shape = SubResource( 9 )

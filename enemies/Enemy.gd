@@ -16,6 +16,7 @@ export var hit_amount = 10
 ############################
 
 var body_attack = null
+var cache_target = null
 
 var velocity = Vector3.ZERO
 
@@ -25,6 +26,7 @@ onready var _AttackArea: Area = $AttackArea
 onready var _TargetArea: Area = $TargetArea
 onready var _PunchTimer: Timer = $PunchTimer
 onready var _Drill = get_tree().get_root().get_node("Main/RoomAssembly/Drill")
+onready var _PathFinding = get_tree().get_root().get_node("Main/RoomAssembly/Pathfinding")
 onready var _LifeBarRed = $LifeBarRed
 
 const PARAM_DEAD = "parameters/dead_transition/current"
@@ -65,23 +67,38 @@ func _physics_process(delta):
 			if not is_instance_valid(body_attack):
 				body_attack = null
 
-			if body_attack == null or body_attack == _Drill:
+			if body_attack == null:
 				for body in _TargetArea.get_overlapping_bodies():
 					if body.is_in_group("turret"):
 						body_attack = body.get_owner()
 						break
-				if body_attack == null:
-					body_attack = _Drill
 
-			var body_target = body_attack.get_enemies_target()
+			var body_target
+			if body_attack == null:
+				if cache_target != null:
+					if to_local(cache_target.global_transform.origin).length() < 0.5:
+						cache_target = null
+
+				if cache_target == null or cache_target == _Drill:
+					cache_target = _PathFinding.get_target(self)
+				
+				if cache_target == _Drill:
+					body_target = cache_target.get_enemies_target()
+					if _AttackArea.overlaps_area(body_target):
+						body_attack = _Drill
+						state = State.ATTACK
+				else:
+					body_target = cache_target
+			else:
+				body_target = body_attack.get_enemies_target()
+				if _AttackArea.overlaps_area(body_target):
+					state = State.ATTACK
+
 			var target_pos = to_local(body_target.global_transform.origin)
 			target_pos.y = translation.y
 			_Pivot.look_at(to_global(target_pos), Vector3.UP)
 			direction = target_pos.normalized() * speed
 			_AnimationTree.set(PARAM_RUN, 1.0)
-			
-			if _AttackArea.overlaps_area(body_target):
-				state = State.ATTACK
 		State.ATTACK:
 			if body_attack == null or not is_instance_valid(body_attack):
 				body_attack = null

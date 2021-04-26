@@ -71,7 +71,7 @@ nodes/punch2_shot/node = SubResource( 12 )
 nodes/punch2_shot/position = Vector2( 1660, 300 )
 nodes/run_blend/node = SubResource( 13 )
 nodes/run_blend/position = Vector2( 660, -100 )
-node_connections = [ "output", 0, "punch2_shot", "punch2_scale", 0, "Animation 5", "punch2_shot", 0, "punch1_shot", "punch2_shot", 1, "punch2_scale", "punch1_shot", 0, "jump_shot", "punch1_shot", 1, "punch1_scale", "jump_scale", 0, "Animation 3", "run_blend", 0, "Animation", "run_blend", 1, "Animation 2", "jump_shot", 0, "run_blend", "jump_shot", 1, "jump_scale", "punch1_scale", 0, "Animation 4" ]
+node_connections = [ "output", 0, "punch2_shot", "run_blend", 0, "Animation", "run_blend", 1, "Animation 2", "punch2_scale", 0, "Animation 5", "jump_shot", 0, "run_blend", "jump_shot", 1, "jump_scale", "punch1_shot", 0, "jump_shot", "punch1_shot", 1, "punch1_scale", "punch2_shot", 0, "punch1_shot", "punch2_shot", 1, "punch2_scale", "jump_scale", 0, "Animation 3", "punch1_scale", 0, "Animation 4" ]
 
 [node name="Mike" instance=ExtResource( 1 )]
 
