@@ -33,6 +33,14 @@ func hit(amount):
 		popup.popup()
 		get_tree().paused = true
 
+func repare(amount):
+	var max_amount = max_life - life
+	if amount > max_amount:
+		amount = max_amount
+	life += amount
+	update_hud()
+	return amount
+
 func update_hud():
 	var progress = get_tree().get_root().get_node("Main/Control/ProgressBar")
 	var score = get_tree().get_root().get_node("Main/Control/Popup/Label2")

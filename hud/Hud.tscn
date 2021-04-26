@@ -7,10 +7,10 @@
 size = 28
 font_data = ExtResource( 1 )
 
-[sub_resource type="StyleBoxFlat" id=3]
+[sub_resource type="StyleBoxFlat" id=2]
 bg_color = Color( 0.819608, 0.501961, 0.054902, 1 )
 
-[sub_resource type="StyleBoxFlat" id=2]
+[sub_resource type="StyleBoxFlat" id=3]
 bg_color = Color( 0.0196078, 0.0352941, 0.0431373, 1 )
 corner_detail = 16
 
@@ -62,8 +62,8 @@ margin_left = 9.0
 margin_top = 14.0
 margin_right = 269.0
 margin_bottom = 59.0
-custom_styles/fg = SubResource( 3 )
-custom_styles/bg = SubResource( 2 )
+custom_styles/fg = SubResource( 2 )
+custom_styles/bg = SubResource( 3 )
 custom_fonts/font = SubResource( 4 )
 custom_colors/font_color = Color( 0.819608, 0.501961, 0.054902, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
