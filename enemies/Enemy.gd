@@ -76,7 +76,9 @@ func _physics_process(delta):
 			var body_target
 			if body_attack == null:
 				if cache_target != null:
-					if to_local(cache_target.global_transform.origin).length() < 0.5:
+					var cache_pos = to_local(cache_target.global_transform.origin)
+					cache_pos.y = 0
+					if cache_pos.length() < 2.0:
 						cache_target = null
 
 				if cache_target == null or cache_target == _Drill:

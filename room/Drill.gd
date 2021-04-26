@@ -1,16 +1,23 @@
 extends Spatial
 
-export var material_interval = 10
-export var life = 500
-export var max_life = 500
+export var material_interval_max = 10
+export var material_interval_min = 1
+export var material_interval_step = 0.1
+export var life = 1000
+export var max_life = 1000
 
 var total_material = 0
+
+var material_timer
+var material_interval
 
 onready var materialSpawn: Position3D = $MaterialSpawn
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	var material_timer = Timer.new()
+	material_interval = material_interval_max
+
+	material_timer = Timer.new()
 	material_timer.set_wait_time(material_interval)
 	material_timer.set_one_shot(false)
 	material_timer.connect("timeout", self, "spawn_material")
@@ -24,6 +31,11 @@ func spawn_material():
 		material_instance.rotation = materialSpawn.rotation
 		get_tree().get_root().get_node("Main/RoomAssembly").add_child(material_instance)
 		total_material += 10
+		
+		material_interval -= material_interval_step
+		if material_interval < material_interval_min:
+			material_interval = material_interval_min
+		material_timer.set_wait_time(material_interval)
 
 func hit(amount):
 	life -= amount

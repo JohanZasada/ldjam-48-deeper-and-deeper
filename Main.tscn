@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://room/RoomAssembly.tscn" type="PackedScene" id=1]
 [ext_resource path="res://player/Player.tscn" type="PackedScene" id=2]
@@ -7,13 +7,250 @@
 [ext_resource path="res://enemies/EnemiesSpawn.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Main.gd" type="Script" id=6]
 
+[sub_resource type="GDScript" id=1]
+script/source = "extends Spatial
+
+export var delay = 5.0
+
+export var freq_max = 12.0
+export var freq_min = 5.0
+export var freq_step = 0.2
+
+export var nb_min = 2.0
+export var nb_max = 13.0
+export var nb_step = 0.2
+
+export var autostart = true
+export var autorestart = true
+
+var current_freq = 0.0
+var current_nb = 0.0
+
+onready var _Enemy = preload(\"res://enemies/Enemy.tscn\")
+onready var _Timer = $Timer
+onready var _EnemiesContainer = get_tree().get_root().get_node(\"Main\")
+onready var _Positions = $Positions.get_children()
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	current_freq = freq_max
+	current_nb = nb_min
+
+	if autostart:
+		_Timer.start(delay)
+
+func spawn():
+	for i in range(round(current_nb)):
+		var en = _Enemy.instance()
+		_EnemiesContainer.add_child(en)
+		en.global_transform.origin = global_transform.origin + _Positions[i % _Positions.size()].translation
+	
+	current_freq -= freq_step
+	if current_freq < freq_min:
+		current_freq = freq_min
+
+	current_nb += nb_step
+	if current_nb > nb_max:
+		current_nb = nb_max
+	
+	if autorestart:
+		_Timer.start(current_freq)
+
+
+func _on_Timer_timeout():
+	spawn()
+"
+
+[sub_resource type="GDScript" id=2]
+script/source = "extends Spatial
+
+export var delay = 5.0
+
+export var freq_max = 12.0
+export var freq_min = 5.0
+export var freq_step = 0.2
+
+export var nb_min = 2.0
+export var nb_max = 13.0
+export var nb_step = 0.2
+
+export var autostart = true
+export var autorestart = true
+
+var current_freq = 0.0
+var current_nb = 0.0
+
+onready var _Enemy = preload(\"res://enemies/Enemy.tscn\")
+onready var _Timer = $Timer
+onready var _EnemiesContainer = get_tree().get_root().get_node(\"Main\")
+onready var _Positions = $Positions.get_children()
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	current_freq = freq_max
+	current_nb = nb_min
+
+	if autostart:
+		_Timer.start(delay)
+
+func spawn():
+	for i in range(round(current_nb)):
+		var en = _Enemy.instance()
+		_EnemiesContainer.add_child(en)
+		en.global_transform.origin = global_transform.origin + _Positions[i % _Positions.size()].translation
+	
+	current_freq -= freq_step
+	if current_freq < freq_min:
+		current_freq = freq_min
+
+	current_nb += nb_step
+	if current_nb > nb_max:
+		current_nb = nb_max
+	
+	if autorestart:
+		_Timer.start(current_freq)
+
+
+func _on_Timer_timeout():
+	spawn()
+"
+
+[sub_resource type="GDScript" id=3]
+script/source = "extends Spatial
+
+export var delay = 5.0
+
+export var freq_max = 12.0
+export var freq_min = 5.0
+export var freq_step = 0.2
+
+export var nb_min = 2.0
+export var nb_max = 13.0
+export var nb_step = 0.2
+
+export var autostart = true
+export var autorestart = true
+
+var current_freq = 0.0
+var current_nb = 0.0
+
+onready var _Enemy = preload(\"res://enemies/Enemy.tscn\")
+onready var _Timer = $Timer
+onready var _EnemiesContainer = get_tree().get_root().get_node(\"Main\")
+onready var _Positions = $Positions.get_children()
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	current_freq = freq_max
+	current_nb = nb_min
+
+	if autostart:
+		_Timer.start(delay)
+
+func spawn():
+	for i in range(round(current_nb)):
+		var en = _Enemy.instance()
+		_EnemiesContainer.add_child(en)
+		en.global_transform.origin = global_transform.origin + _Positions[i % _Positions.size()].translation
+	
+	current_freq -= freq_step
+	if current_freq < freq_min:
+		current_freq = freq_min
+
+	current_nb += nb_step
+	if current_nb > nb_max:
+		current_nb = nb_max
+	
+	if autorestart:
+		_Timer.start(current_freq)
+
+
+func _on_Timer_timeout():
+	spawn()
+"
+
+[sub_resource type="GDScript" id=4]
+script/source = "extends Spatial
+
+export var delay = 5.0
+
+export var freq_max = 12.0
+export var freq_min = 5.0
+export var freq_step = 0.2
+
+export var nb_min = 2.0
+export var nb_max = 13.0
+export var nb_step = 0.2
+
+export var autostart = true
+export var autorestart = true
+
+var current_freq = 0.0
+var current_nb = 0.0
+
+onready var _Enemy = preload(\"res://enemies/Enemy.tscn\")
+onready var _Timer = $Timer
+onready var _EnemiesContainer = get_tree().get_root().get_node(\"Main\")
+onready var _Positions = $Positions.get_children()
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	current_freq = freq_max
+	current_nb = nb_min
+
+	if autostart:
+		_Timer.start(delay)
+
+func spawn():
+	for i in range(round(current_nb)):
+		var en = _Enemy.instance()
+		_EnemiesContainer.add_child(en)
+		en.global_transform.origin = global_transform.origin + _Positions[i % _Positions.size()].translation
+	
+	current_freq -= freq_step
+	if current_freq < freq_min:
+		current_freq = freq_min
+
+	current_nb += nb_step
+	if current_nb > nb_max:
+		current_nb = nb_max
+	
+	if autorestart:
+		_Timer.start(current_freq)
+
+
+func _on_Timer_timeout():
+	spawn()
+"
+
+[sub_resource type="BoxShape" id=12]
+extents = Vector3( 2.09037, 7.75002, 2.07209 )
+
+[sub_resource type="BoxShape" id=6]
+extents = Vector3( 7.97695, 7.75002, 12.0517 )
+
+[sub_resource type="BoxShape" id=7]
+extents = Vector3( 27.6929, 7.75002, 29.9273 )
+
+[sub_resource type="BoxShape" id=11]
+extents = Vector3( 27.6929, 7.75002, 29.9273 )
+
+[sub_resource type="BoxShape" id=8]
+extents = Vector3( 27.5277, 7.75002, 32.7407 )
+
+[sub_resource type="BoxShape" id=9]
+extents = Vector3( 16.7016, 7.75002, 28.8436 )
+
+[sub_resource type="BoxShape" id=10]
+extents = Vector3( 16.7016, 7.75002, 28.8436 )
+
 [node name="Main" type="Spatial"]
 script = ExtResource( 6 )
 
 [node name="RoomAssembly" parent="." instance=ExtResource( 1 )]
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
-transform = Transform( 0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 8.53963, 0.136832, 18.4015 )
+transform = Transform( 0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 9.34472, 0.598781, 18.9088 )
 player_material = 10
 
 [node name="Control" parent="." instance=ExtResource( 3 )]
@@ -23,6 +260,121 @@ margin_right = 1024.0
 margin_bottom = 600.0
 
 [node name="EnemiesSpawn" parent="." instance=ExtResource( 5 )]
-transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 2, -10 )
+transform = Transform( 0.520428, 0, -0.853905, 0, 1, 0, 0.853905, 0, 0.520428, -5.48088, 0.656517, -8.08822 )
+freq_max = 5.0
+freq_min = 1.0
+freq_step = 0.1
+nb_min = 1.0
+nb_max = 1.0
+nb_step = 0.0
+
+[node name="EnemiesSpawn2" parent="." instance=ExtResource( 5 )]
+transform = Transform( 0.0072255, 0, 0.999974, 0, 1, 0, -0.999974, 0, 0.0072255, 4.26133, 1.00474, 84.3549 )
+script = SubResource( 1 )
+delay = 60.0
+freq_max = 30.0
+freq_min = 30.0
+freq_step = 0.0
+nb_min = 10.0
+nb_max = 10.0
+nb_step = 0.0
+
+[node name="EnemiesSpawn3" parent="." instance=ExtResource( 5 )]
+transform = Transform( 0.0124266, 0, -0.999923, 0, 1, 0, 0.999923, 0, 0.0124266, -16.3996, 0.88065, -55.9806 )
+script = SubResource( 2 )
+delay = 30.0
+freq_max = 6.0
+freq_min = 1.0
+freq_step = 0.1
+nb_min = 1.0
+nb_max = 2.0
+nb_step = 0.1
+
+[node name="EnemiesSpawn4" parent="." instance=ExtResource( 5 )]
+transform = Transform( 0.999923, 0, 0.0124266, 0, 1, 0, -0.0124266, 0, 0.999923, -69.5113, 0.796557, 29.4782 )
+script = SubResource( 3 )
+delay = 180.0
+freq_max = 30.0
+freq_min = 30.0
+freq_step = 0.0
+nb_min = 40.0
+nb_max = 40.0
+nb_step = 0.0
+
+[node name="EnemiesSpawn5" parent="." instance=ExtResource( 5 )]
+transform = Transform( -0.845886, 0, -0.533364, 0, 1, 0, 0.533364, 0, -0.845886, 73.9975, 0.88065, 7.68597 )
+script = SubResource( 4 )
 
 [node name="Pathfinding" parent="." instance=ExtResource( 4 )]
+
+[node name="Area7" type="Area" parent="Pathfinding"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -14.6119, 0, 9.6442 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Pathfinding/Area7"]
+transform = Transform( 0.638781, 0, 0.769388, 0, 1, 0, -0.769388, 0, 0.638781, 21.9266, 9.53674e-07, 6.89066 )
+shape = SubResource( 12 )
+
+[node name="Position3D" type="Position3D" parent="Pathfinding/Area7"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 17.5167, -9.53674e-07, 8.25876 )
+
+[node name="Area2" type="Area" parent="Pathfinding"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -47.5207 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Pathfinding/Area2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 22.7961, 0, 4.37961 )
+shape = SubResource( 6 )
+
+[node name="Position3D" type="Position3D" parent="Pathfinding/Area2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11.024, -9.53674e-07, -0.14296 )
+
+[node name="Area" type="Area" parent="Pathfinding"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -47.5207 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Pathfinding/Area"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9.27039, 0, 2.0763 )
+shape = SubResource( 7 )
+
+[node name="Position3D" type="Position3D" parent="Pathfinding/Area"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.504331, -4.76837e-06, 35.6188 )
+
+[node name="Area6" type="Area" parent="Pathfinding"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -46.0592, 0, 20.9261 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Pathfinding/Area6"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9.27039, 0, 2.0763 )
+shape = SubResource( 11 )
+
+[node name="Position3D" type="Position3D" parent="Pathfinding/Area6"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 23.744, 9.53674e-07, -9.76842 )
+
+[node name="Area3" type="Area" parent="Pathfinding"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 42.9976, 0, 11.2921 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Pathfinding/Area3"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 16.6205, 0, -0.221809 )
+shape = SubResource( 8 )
+
+[node name="Position3D" type="Position3D" parent="Pathfinding/Area3"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12.818, 2.86102e-06, 12.314 )
+
+[node name="Area4" type="Area" parent="Pathfinding"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13.4508, 0, 66.6192 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Pathfinding/Area4"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -27.8533, 0, 4.67168 )
+shape = SubResource( 9 )
+
+[node name="Position3D" type="Position3D" parent="Pathfinding/Area4"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -26.2127, -9.53674e-07, -29.423 )
+
+[node name="Area5" type="Area" parent="Pathfinding"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 45.0476, 0, 63.2371 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Pathfinding/Area5"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -27.8533, 0, 4.67168 )
+shape = SubResource( 10 )
+
+[node name="Position3D" type="Position3D" parent="Pathfinding/Area5"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -29.681, -9.53674e-07, -29.3292 )
+
+[node name="Enemies" type="Node" parent="."]

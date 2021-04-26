@@ -14,7 +14,7 @@ export var acceleration = 15
 export var jump_impulse = 22
 export var punch_move_speed = 2
 export var hit_amount = 50
-export var speed_repare = 100 # 100 health/s
+export var speed_repare = 200 # 100 health/s
 export var cost_repare = 0.01 # 0.01 material/health
 
 func add_material(amount):
