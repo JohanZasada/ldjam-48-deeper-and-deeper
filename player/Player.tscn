@@ -5719,7 +5719,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.9, 0 )
 shape = SubResource( 25 )
 
 [node name="Camera" type="Camera" parent="."]
-transform = Transform( 0.707107, -0.5, 0.5, 0, 0.707107, 0.707107, -0.707107, -0.5, 0.5, 18, 28, 18 )
+transform = Transform( 0.707107, -0.5, 0.5, 0, 0.707107, 0.707107, -0.707107, -0.5, 0.5, 118, 169.351, 118.977 )
 projection = 1
 current = true
 size = 20.0

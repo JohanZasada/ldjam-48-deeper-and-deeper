@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://room/RoomAssembly.tscn" type="PackedScene" id=1]
 [ext_resource path="res://player/Player.tscn" type="PackedScene" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://enemies/Pathfinding.tscn" type="PackedScene" id=4]
 [ext_resource path="res://enemies/EnemiesSpawn.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Main.gd" type="Script" id=6]
+[ext_resource path="res://material/dark_grey_material.tres" type="Material" id=7]
 
 [sub_resource type="GDScript" id=1]
 script/source = "extends Spatial
@@ -223,7 +224,7 @@ func _on_Timer_timeout():
 	spawn()
 "
 
-[sub_resource type="BoxShape" id=12]
+[sub_resource type="BoxShape" id=5]
 extents = Vector3( 2.09037, 7.75002, 2.07209 )
 
 [sub_resource type="BoxShape" id=6]
@@ -232,17 +233,20 @@ extents = Vector3( 7.97695, 7.75002, 12.0517 )
 [sub_resource type="BoxShape" id=7]
 extents = Vector3( 27.6929, 7.75002, 29.9273 )
 
-[sub_resource type="BoxShape" id=11]
+[sub_resource type="BoxShape" id=8]
 extents = Vector3( 27.6929, 7.75002, 29.9273 )
 
-[sub_resource type="BoxShape" id=8]
-extents = Vector3( 27.5277, 7.75002, 32.7407 )
-
 [sub_resource type="BoxShape" id=9]
-extents = Vector3( 16.7016, 7.75002, 28.8436 )
+extents = Vector3( 27.5277, 7.75002, 32.7407 )
 
 [sub_resource type="BoxShape" id=10]
 extents = Vector3( 16.7016, 7.75002, 28.8436 )
+
+[sub_resource type="BoxShape" id=11]
+extents = Vector3( 16.7016, 7.75002, 28.8436 )
+
+[sub_resource type="PlaneMesh" id=12]
+size = Vector2( 500, 500 )
 
 [node name="Main" type="Spatial"]
 script = ExtResource( 6 )
@@ -312,7 +316,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -14.6119, 0, 9.6442 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Pathfinding/Area7"]
 transform = Transform( 0.638781, 0, 0.769388, 0, 1, 0, -0.769388, 0, 0.638781, 21.9266, 9.53674e-07, 6.89066 )
-shape = SubResource( 12 )
+shape = SubResource( 5 )
 
 [node name="Position3D" type="Position3D" parent="Pathfinding/Area7"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 17.5167, -9.53674e-07, 8.25876 )
@@ -342,7 +346,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -46.0592, 0, 20.9261 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Pathfinding/Area6"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9.27039, 0, 2.0763 )
-shape = SubResource( 11 )
+shape = SubResource( 8 )
 
 [node name="Position3D" type="Position3D" parent="Pathfinding/Area6"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 23.744, 9.53674e-07, -9.76842 )
@@ -352,7 +356,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 42.9976, 0, 11.2921 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Pathfinding/Area3"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 16.6205, 0, -0.221809 )
-shape = SubResource( 8 )
+shape = SubResource( 9 )
 
 [node name="Position3D" type="Position3D" parent="Pathfinding/Area3"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12.818, 2.86102e-06, 12.314 )
@@ -362,7 +366,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13.4508, 0, 66.6192 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Pathfinding/Area4"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -27.8533, 0, 4.67168 )
-shape = SubResource( 9 )
+shape = SubResource( 10 )
 
 [node name="Position3D" type="Position3D" parent="Pathfinding/Area4"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -26.2127, -9.53674e-07, -29.423 )
@@ -372,9 +376,14 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 45.0476, 0, 63.2371 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Pathfinding/Area5"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -27.8533, 0, 4.67168 )
-shape = SubResource( 10 )
+shape = SubResource( 11 )
 
 [node name="Position3D" type="Position3D" parent="Pathfinding/Area5"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -29.681, -9.53674e-07, -29.3292 )
 
 [node name="Enemies" type="Node" parent="."]
+
+[node name="CSGMesh" type="CSGMesh" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.185453, 0 )
+mesh = SubResource( 12 )
+material = ExtResource( 7 )

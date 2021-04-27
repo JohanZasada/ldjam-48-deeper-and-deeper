@@ -133,10 +133,11 @@ text = "Retry"
 
 [node name="Popup2" type="Popup" parent="."]
 pause_mode = 2
+visible = true
 margin_left = 9.0
 margin_top = 8.0
-margin_right = 469.0
-margin_bottom = 352.0
+margin_right = 784.0
+margin_bottom = 583.0
 popup_exclusive = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -144,41 +145,55 @@ __meta__ = {
 
 [node name="ColorRect" type="ColorRect" parent="Popup2"]
 margin_top = 1.0
-margin_right = 457.0
-margin_bottom = 341.0
+margin_right = 774.0
+margin_bottom = 576.0
 color = Color( 0.819608, 0.501961, 0.054902, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Popup2/ColorRect"]
-margin_left = 22.4756
-margin_top = 24.3496
-margin_right = 370.476
-margin_bottom = 247.35
+margin_left = 22.0
+margin_top = 23.1091
+margin_right = 754.0
+margin_bottom = 533.109
 custom_fonts/normal_font = SubResource( 8 )
-text = "Protect your drill !
+text = "												SUPER DRILLER BROS
 
-ZQSD or WASD or Joystick for move
-F or Y (xbox pad) for construct a turret
-Space or A (xbox pad) for jump
-Right clic or B (xbox pad) for kick
-Left clic or X (xbox pad) for repair"
+Protect your drill machine ! The deeper it is drilling, the more you get materials.
+
+MOVE THE PLAYER
+		ZQSD / WASD / Left joystick
+JUMP
+		Space / XBOX-A / PS-CROSS / NINTENDO-B
+CONSTRUCT A TURRET
+		F / XBOX-Y / PS-TRIANGLE / NINTENDO-X
+KICK
+		Right clic / XBOX-B / PS-CIRCLE / NINTENDO-A
+REPAIR DRILL AND TURRETS
+		Left clic / XBOX-X / PS-SQUARE / NINTENDO-Y
+
+Thanks to Quaternius for the free graphics assets
+
+by schadocalex & refact"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="StartPanet" type="Panel" parent="Popup2/ColorRect"]
-margin_left = 267.428
-margin_top = 283.089
-margin_right = 444.428
-margin_bottom = 323.089
+margin_left = 536.492
+margin_top = 493.714
+margin_right = 764.492
+margin_bottom = 564.714
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Label" type="Label" parent="Popup2/ColorRect/StartPanet"]
-margin_left = 37.727
-margin_top = 1.89087
-margin_right = 135.727
-margin_bottom = 39.8909
+margin_left = 65.7885
+margin_top = 15.3605
+margin_right = 163.789
+margin_bottom = 53.3605
 custom_fonts/font = SubResource( 7 )
 text = "START"
 

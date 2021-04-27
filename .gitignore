@@ -22,3 +22,5 @@ mono_crash.*.json
 
 # Blender
 *.blend1
+
+export/
